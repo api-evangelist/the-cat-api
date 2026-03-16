@@ -1,27 +1,45 @@
 aid: the-cat-api
 name: The Cat API
-description: 'An API all about cat. '
+description: An open, free, read and write API all about cats. Access thousands of cat images, vote, favorite, and explore breed information.
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
+  - Cats
+  - Images
+  - Animals
 created: '2025-01-07'
-modified: '2025-01-07'
+modified: '2026-03-16'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/the-cat-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: the-cat-api:the-cat-api
     name: The Cat API
-    description: 'An API all about cat. '
-    humanURL: ' https://thecatapi.com/'
+    description: An open, free, read and write API all about cats. Access thousands of cat images, vote, favorite, and explore breed information.
+    humanURL: https://thecatapi.com/
+    baseURL: https://api.thecatapi.com/v1
     tags:
-      - API
+      - Cats
+      - Images
+      - Animals
     properties:
       - type: Documentation
-        url: ' https://thecatapi.com/'
+        url: https://developers.thecatapi.com/
+      - type: Sign Up
+        url: https://account.thecatapi.com/
+      - type: Getting Started
+        url: https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
+common:
+  - type: Website
+    url: https://thecatapi.com/
+  - type: Documentation
+    url: https://developers.thecatapi.com/
+  - type: Sign Up
+    url: https://account.thecatapi.com/
+  - type: GitHub Organization
+    url: https://github.com/thatapicompany
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
