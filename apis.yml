@@ -6,9 +6,9 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Animals
   - Cats
   - Images
-  - Animals
 created: '2025-01-07'
 modified: '2026-03-16'
 url: >-
@@ -21,9 +21,9 @@ apis:
     humanURL: https://thecatapi.com/
     baseURL: https://api.thecatapi.com/v1
     tags:
+      - Animals
       - Cats
       - Images
-      - Animals
     properties:
       - type: Documentation
         url: https://developers.thecatapi.com/
