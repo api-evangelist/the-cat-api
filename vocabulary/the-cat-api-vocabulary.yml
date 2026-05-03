@@ -1,0 +1,74 @@
+vocabulary:
+  title: The Cat API Vocabulary
+  description: >-
+    Domain vocabulary for The Cat API covering cat images, breeds, voting,
+    favourites, and related concepts.
+  version: '1.0'
+  created: '2026-05-03'
+  modified: '2026-05-03'
+  terms:
+    - term: Image
+      label: Cat Image
+      definition: >-
+        A photograph or GIF of a cat, identified by a unique ID and accessible
+        via a direct URL. May include breed associations and category tags.
+      domain: Images
+
+    - term: Breed
+      label: Cat Breed
+      definition: >-
+        A recognized cat breed with standardized traits, temperament ratings,
+        origin country, and health information. Identified by a short lowercase
+        code (e.g., beng = Bengal, abys = Abyssinian).
+      domain: Breeds
+
+    - term: Favourite
+      label: User Favourite
+      definition: >-
+        An image saved by a user as a personal favourite. Each favourite links
+        a user ID to an image ID and can optionally be scoped to a sub-account.
+      domain: User Actions
+
+    - term: Vote
+      label: Image Vote
+      definition: >-
+        A user rating for a cat image. Value of 1 indicates an upvote;
+        value of 0 indicates a downvote.
+      domain: User Actions
+
+    - term: Category
+      label: Image Category
+      definition: >-
+        A tag that classifies cat images by context or visual theme
+        (e.g., hats, sinks, sunglasses). Used to filter image searches.
+      domain: Images
+
+    - term: sub_id
+      label: Sub-Account Identifier
+      definition: >-
+        An optional string that scopes votes and favourites to a specific
+        user or session within a single API key account. Useful for multi-user
+        applications.
+      domain: API
+
+    - term: x-api-key
+      label: API Key Header
+      definition: >-
+        The HTTP request header used to authenticate Cat API write operations.
+        Obtained free at https://thecatapi.com/signup.
+      domain: Authentication
+
+    - term: has_breeds
+      label: Has Breeds Filter
+      definition: >-
+        A query parameter (1 or 0) for the image search endpoint. When set to 1,
+        returns only images that have associated breed information.
+      domain: Images
+
+    - term: BreedRating
+      label: Breed Trait Rating
+      definition: >-
+        A numeric score from 1 to 5 assigned to a breed for traits such as
+        adaptability, affection level, intelligence, energy level, and shedding.
+        Higher values indicate stronger expression of the trait.
+      domain: Breeds

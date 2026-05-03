@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-cat-api/main/json-schema/the-cat-api-breed-schema.json",
+  "title": "Cat API Breed",
+  "description": "Detailed information about a cat breed from The Cat API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique breed identifier (e.g., beng for Bengal, abys for Abyssinian)."
+    },
+    "name": {
+      "type": "string",
+      "description": "Full breed name."
+    },
+    "cfa_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Cat Fanciers Association profile URL."
+    },
+    "vetstreet_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "vcahospitals_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "temperament": {
+      "type": "string",
+      "description": "Comma-separated list of temperament traits."
+    },
+    "origin": {
+      "type": "string",
+      "description": "Country or region of breed origin."
+    },
+    "country_codes": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code(s) for origin."
+    },
+    "description": {
+      "type": "string",
+      "description": "Narrative description of the breed."
+    },
+    "life_span": {
+      "type": "string",
+      "description": "Expected lifespan range in years (e.g., '12-15')."
+    },
+    "indoor": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Whether the breed is primarily an indoor cat (1) or not (0)."
+    },
+    "lap": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "Whether the breed is a lap cat (1) or not (0)."
+    },
+    "adaptability": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Adaptability score 1-5."
+    },
+    "affection_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Affection level score 1-5."
+    },
+    "child_friendly": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Child-friendliness score 1-5."
+    },
+    "dog_friendly": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Dog-friendliness score 1-5."
+    },
+    "energy_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Energy level score 1-5."
+    },
+    "grooming": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Grooming needs score 1-5 (5 = high need)."
+    },
+    "health_issues": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Health issue frequency score 1-5."
+    },
+    "intelligence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Intelligence score 1-5."
+    },
+    "shedding_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Shedding level score 1-5."
+    },
+    "social_needs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Social needs score 1-5."
+    },
+    "stranger_friendly": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Friendliness to strangers score 1-5."
+    },
+    "vocalisation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Vocalisation level score 1-5."
+    },
+    "wikipedia_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" }
+      }
+    }
+  },
+  "required": ["id", "name"]
+}

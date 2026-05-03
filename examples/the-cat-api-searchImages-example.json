@@ -1,0 +1,48 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.thecatapi.com/v1/images/search?limit=2&breed_ids=beng&has_breeds=1",
+    "headers": {
+      "x-api-key": "YOUR_API_KEY"
+    },
+    "parameters": {
+      "limit": 2,
+      "breed_ids": "beng",
+      "has_breeds": 1
+    }
+  },
+  "response": [
+    {
+      "id": "bjl9it5k7",
+      "url": "https://cdn2.thecatapi.com/images/bjl9it5k7.jpg",
+      "width": 1080,
+      "height": 1080,
+      "breeds": [
+        {
+          "id": "beng",
+          "name": "Bengal",
+          "temperament": "Alert, Agile, Energetic, Demanding, Intelligent",
+          "origin": "United States",
+          "country_codes": "US",
+          "description": "Bengals are a lot of fun to live with, but they're definitely not the cat for everyone, or for first-time cat owners.",
+          "life_span": "12-15",
+          "adaptability": 5,
+          "affection_level": 5,
+          "child_friendly": 4,
+          "dog_friendly": 5,
+          "energy_level": 5,
+          "grooming": 1,
+          "health_issues": 3,
+          "intelligence": 5,
+          "shedding_level": 3,
+          "social_needs": 5,
+          "stranger_friendly": 3,
+          "vocalisation": 5,
+          "indoor": 0,
+          "lap": 0,
+          "wikipedia_url": "https://en.wikipedia.org/wiki/Bengal_(cat)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "title": "Cat API Image Search Response Structure",
+  "description": "The structure of the array response from the GET /images/search endpoint.",
+  "type": "array",
+  "structure": {
+    "items": {
+      "type": "object",
+      "description": "A single cat image result.",
+      "children": {
+        "id": {
+          "type": "string",
+          "description": "Unique image identifier."
+        },
+        "url": {
+          "type": "string",
+          "description": "Direct URL to the image file."
+        },
+        "width": {
+          "type": "integer",
+          "description": "Image width in pixels."
+        },
+        "height": {
+          "type": "integer",
+          "description": "Image height in pixels."
+        },
+        "breeds": {
+          "type": "array",
+          "description": "Zero or more breed objects associated with this image.",
+          "items": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "origin": { "type": "string" },
+            "temperament": { "type": "string" },
+            "description": { "type": "string" },
+            "life_span": { "type": "string" },
+            "adaptability": { "type": "integer" },
+            "affection_level": { "type": "integer" },
+            "intelligence": { "type": "integer" },
+            "wikipedia_url": { "type": "string" }
+          }
+        },
+        "categories": {
+          "type": "array",
+          "description": "Zero or more category tags for the image.",
+          "items": {
+            "id": { "type": "integer" },
+            "name": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

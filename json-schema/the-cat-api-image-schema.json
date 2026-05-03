@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-cat-api/main/json-schema/the-cat-api-image-schema.json",
+  "title": "Cat API Image",
+  "description": "A cat image object returned by The Cat API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the image."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Full URL to the image."
+    },
+    "width": {
+      "type": "integer",
+      "description": "Image width in pixels."
+    },
+    "height": {
+      "type": "integer",
+      "description": "Image height in pixels."
+    },
+    "breeds": {
+      "type": "array",
+      "description": "Breed information associated with this image.",
+      "items": {
+        "$ref": "#/$defs/Breed"
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Category"
+      }
+    }
+  },
+  "required": ["id", "url"],
+  "$defs": {
+    "Breed": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "origin": { "type": "string" },
+        "temperament": { "type": "string" },
+        "description": { "type": "string" },
+        "life_span": { "type": "string" },
+        "adaptability": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "affection_level": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "child_friendly": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "dog_friendly": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "energy_level": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "intelligence": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "shedding_level": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "wikipedia_url": { "type": "string", "format": "uri" }
+      },
+      "required": ["id", "name"]
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    }
+  }
+}

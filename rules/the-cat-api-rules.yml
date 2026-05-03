@@ -1,0 +1,84 @@
+extends: spectral:oas
+rules:
+  catapi-operations-must-have-tags:
+    description: All Cat API operations must be tagged (Images, Breeds, Favourites, Votes, Categories).
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  catapi-operations-must-have-summary:
+    description: All operations must have a summary in Title Case.
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: summary
+      function: truthy
+
+  catapi-operations-must-have-operationid:
+    description: All operations must define an operationId for SDK generation.
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  catapi-responses-must-include-200:
+    description: All read operations must define a 200 success response.
+    severity: error
+    given: "$.paths[*][get].responses"
+    then:
+      field: "200"
+      function: truthy
+
+  catapi-responses-must-include-401:
+    description: All write operations should document a 401 Unauthorized response.
+    severity: warn
+    given: "$.paths[*][post].responses"
+    then:
+      field: "401"
+      function: falsy
+
+  catapi-parameters-must-have-descriptions:
+    description: All path and query parameters must have descriptions.
+    severity: warn
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  catapi-collection-paths-use-plural-nouns:
+    description: Collection paths must use plural nouns (e.g., /images, /breeds, /votes, /favourites).
+    severity: warn
+    given: "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/[a-z-]+s(/|$)"
+
+  catapi-path-parameters-use-snake-case:
+    description: Path parameter names must use snake_case.
+    severity: warn
+    given: "$.paths[*][*].parameters[?(@.in == 'path')]"
+    then:
+      field: name
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9_]*$"
+
+  catapi-responses-define-content-type:
+    description: All 200 responses should define a content type.
+    severity: warn
+    given: "$.paths[*][get].responses.200"
+    then:
+      field: content
+      function: truthy
+
+  catapi-info-must-have-version:
+    description: The API info object must include a version.
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy

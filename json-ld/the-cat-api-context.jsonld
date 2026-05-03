@@ -1,0 +1,91 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "catapi": "https://api.thecatapi.com/v1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Image": {
+      "@id": "schema:ImageObject"
+    },
+    "id": "@id",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "width": {
+      "@id": "schema:width",
+      "@type": "xsd:integer"
+    },
+    "height": {
+      "@id": "schema:height",
+      "@type": "xsd:integer"
+    },
+
+    "Breed": {
+      "@id": "catapi:Breed"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "origin": {
+      "@id": "schema:countryOfOrigin"
+    },
+    "temperament": {
+      "@id": "catapi:temperament"
+    },
+    "life_span": {
+      "@id": "catapi:lifeSpan"
+    },
+    "wikipedia_url": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "intelligence": {
+      "@id": "catapi:intelligence",
+      "@type": "xsd:integer"
+    },
+    "affection_level": {
+      "@id": "catapi:affectionLevel",
+      "@type": "xsd:integer"
+    },
+    "energy_level": {
+      "@id": "catapi:energyLevel",
+      "@type": "xsd:integer"
+    },
+
+    "Favourite": {
+      "@id": "catapi:Favourite"
+    },
+    "image_id": {
+      "@id": "catapi:imageId"
+    },
+    "sub_id": {
+      "@id": "catapi:subId"
+    },
+    "created_at": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+
+    "Vote": {
+      "@id": "catapi:Vote"
+    },
+    "value": {
+      "@id": "schema:ratingValue",
+      "@type": "xsd:integer"
+    },
+
+    "Category": {
+      "@id": "schema:DefinedTerm"
+    },
+    "breeds": {
+      "@id": "catapi:breeds",
+      "@container": "@set"
+    },
+    "categories": {
+      "@id": "schema:keywords",
+      "@container": "@set"
+    }
+  }
+}

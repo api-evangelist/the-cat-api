@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.thecatapi.com/v1/votes",
+    "headers": {
+      "x-api-key": "YOUR_API_KEY",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "image_id": "bjl9it5k7",
+      "value": 1,
+      "sub_id": "my-user-123"
+    }
+  },
+  "response": {
+    "message": "SUCCESS",
+    "id": 192384,
+    "image_id": "bjl9it5k7",
+    "sub_id": "my-user-123",
+    "country_code": "GB",
+    "created_at": "2026-05-03T12:00:00.000Z",
+    "value": 1
+  }
+}
