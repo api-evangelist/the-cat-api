@@ -1,253 +1,478 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
-  label: "Cat Content Discovery"
-  description: >-
-    Workflow capability for discovering, browsing, and curating cat content.
-    Combines image search with breed lookup, category filtering, voting, and
-    favouriting to support cat app builders, media platforms, and educational tools.
+  label: Cat Content Discovery
+  description: Workflow capability for discovering, browsing, and curating cat content. Combines image search with breed lookup,
+    category filtering, voting, and favouriting to support cat app builders, media platforms, and educational tools.
   tags:
-    - Animals
-    - Cats
-    - Content Discovery
-    - Images
-    - Media
-  created: "2026-05-03"
-  modified: "2026-05-03"
-
+  - Animals
+  - Cats
+  - Content Discovery
+  - Images
+  - Media
+  created: '2026-05-03'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      CAT_API_KEY: CAT_API_KEY
-
+- namespace: env
+  keys:
+    CAT_API_KEY: CAT_API_KEY
 capability:
   consumes:
-    - import: catapi
-      location: ./shared/the-cat-api.yaml
-
+  - type: http
+    namespace: catapi
+    baseUri: https://api.thecatapi.com/v1
+    description: The Cat API — images, breeds, votes, and favourites.
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{CAT_API_KEY}}'
+      placement: header
+    resources:
+    - name: images
+      path: /images
+      description: Cat image search, upload, and retrieval.
+      operations:
+      - name: search-images
+        method: GET
+        description: Search and retrieve cat images with optional breed/category filters.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of images to return (1-100).
+        - name: breed_ids
+          in: query
+          type: string
+          required: false
+          description: Comma-separated breed IDs to filter images.
+        - name: category_ids
+          in: query
+          type: string
+          required: false
+          description: Comma-separated category IDs to filter images.
+        - name: has_breeds
+          in: query
+          type: integer
+          required: false
+          description: Filter to images with breed data (1) or all images (0).
+        - name: order
+          in: query
+          type: string
+          required: false
+          description: Result ordering — RANDOM, ASC, or DESC.
+        - name: size
+          in: query
+          type: string
+          required: false
+          description: Image size — small, med, full, or thumb.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: get-uploaded-images
+        method: GET
+        description: Retrieve images uploaded by the authenticated user.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to return.
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number for pagination.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: upload-image
+        method: POST
+        description: Upload a cat image (JPEG, PNG, or GIF).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: image-detail
+      path: /images/{image_id}
+      description: Single image retrieval and deletion.
+      operations:
+      - name: get-image
+        method: GET
+        description: Retrieve a specific cat image by ID.
+        inputParameters:
+        - name: image_id
+          in: path
+          type: string
+          required: true
+          description: Unique image identifier.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: delete-image
+        method: DELETE
+        description: Delete an uploaded image.
+        inputParameters:
+        - name: image_id
+          in: path
+          type: string
+          required: true
+          description: Unique image identifier.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: breeds
+      path: /breeds
+      description: Cat breed listing and search.
+      operations:
+      - name: list-breeds
+        method: GET
+        description: List all cat breeds with characteristics and ratings.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of breeds per page.
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number for pagination.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: search-breeds
+        method: GET
+        description: Search for breeds by name.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: true
+          description: Breed name search query.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+    - name: favourites
+      path: /favourites
+      description: User favourite image management.
+      operations:
+      - name: list-favourites
+        method: GET
+        description: List all images saved as favourites.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to return.
+        - name: sub_id
+          in: query
+          type: string
+          required: false
+          description: Filter by sub-account identifier.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: save-favourite
+        method: POST
+        description: Save an image as a favourite.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            image_id: '{{tools.image_id}}'
+            sub_id: '{{tools.sub_id}}'
+    - name: votes
+      path: /votes
+      description: Image voting management.
+      operations:
+      - name: list-votes
+        method: GET
+        description: List all votes cast by the authenticated user.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+          required: false
+          description: Number of results to return.
+        - name: sub_id
+          in: query
+          type: string
+          required: false
+          description: Filter by sub-account identifier.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+      - name: create-vote
+        method: POST
+        description: Cast an upvote (1) or downvote (0) on a cat image.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        body:
+          type: json
+          data:
+            image_id: '{{tools.image_id}}'
+            value: '{{tools.value}}'
+            sub_id: '{{tools.sub_id}}'
+    - name: categories
+      path: /categories
+      description: Image category listing.
+      operations:
+      - name: list-categories
+        method: GET
+        description: List all available image categories.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: cat-content-api
-      description: "Unified REST API for cat content discovery, breed research, and user curation."
-      resources:
-        - path: /v1/images
-          name: images
-          description: Search and retrieve cat images.
-          operations:
-            - method: GET
-              name: search-images
-              description: Search cat images with optional breed and category filters.
-              call: "catapi.search-images"
-              with:
-                limit: "rest.limit"
-                breed_ids: "rest.breed_ids"
-                category_ids: "rest.category_ids"
-                has_breeds: "rest.has_breeds"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-        - path: /v1/images/{image_id}
-          name: image-detail
-          description: Retrieve a specific cat image.
-          operations:
-            - method: GET
-              name: get-image
-              description: Get details for a specific cat image.
-              call: "catapi.get-image"
-              with:
-                image_id: "rest.image_id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/breeds
-          name: breeds
-          description: Browse and search cat breeds.
-          operations:
-            - method: GET
-              name: list-breeds
-              description: List all cat breeds with characteristics.
-              call: "catapi.list-breeds"
-              with:
-                limit: "rest.limit"
-                page: "rest.page"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-        - path: /v1/breeds/search
-          name: breed-search
-          description: Search breeds by name.
-          operations:
-            - method: GET
-              name: search-breeds
-              description: Search cat breeds by name.
-              call: "catapi.search-breeds"
-              with:
-                q: "rest.q"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-        - path: /v1/categories
-          name: categories
-          description: Browse image categories.
-          operations:
-            - method: GET
-              name: list-categories
-              description: List all image categories.
-              call: "catapi.list-categories"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-        - path: /v1/favourites
-          name: favourites
-          description: Manage user favourite images.
-          operations:
-            - method: GET
-              name: list-favourites
-              description: List the user's favourite cat images.
-              call: "catapi.list-favourites"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-            - method: POST
-              name: save-favourite
-              description: Save a cat image as a favourite.
-              call: "catapi.save-favourite"
-              with:
-                image_id: "rest.image_id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-        - path: /v1/votes
-          name: votes
-          description: Cast and track votes on cat images.
-          operations:
-            - method: GET
-              name: list-votes
-              description: List all user votes.
-              call: "catapi.list-votes"
-              outputParameters:
-                - type: array
-                  mapping: "$."
-            - method: POST
-              name: create-vote
-              description: Cast an upvote or downvote on an image.
-              call: "catapi.create-vote"
-              with:
-                image_id: "rest.image_id"
-                value: "rest.value"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: cat-content-mcp
-      transport: http
-      description: "MCP server for AI-assisted cat content discovery, breed research, and curation."
-      tools:
-        - name: search-cat-images
-          description: Search for cat images, optionally filtered by breed or category.
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "catapi.search-images"
-          with:
-            limit: "tools.limit"
-            breed_ids: "tools.breed_ids"
-            category_ids: "tools.category_ids"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: get-cat-image
-          description: Retrieve details and metadata for a specific cat image by ID.
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "catapi.get-image"
-          with:
-            image_id: "tools.image_id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-cat-breeds
-          description: List all cat breeds with detailed characteristics, personality ratings, and origin information.
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "catapi.list-breeds"
-          with:
-            limit: "tools.limit"
-            page: "tools.page"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: search-cat-breeds
-          description: Search for cat breeds by name to find breed-specific information.
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "catapi.search-breeds"
-          with:
-            q: "tools.q"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: list-image-categories
-          description: List all available cat image categories for filtering searches.
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "catapi.list-categories"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: list-user-favourites
-          description: List all cat images saved as favourites by the current user.
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "catapi.list-favourites"
-          with:
-            sub_id: "tools.sub_id"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: save-cat-favourite
-          description: Save a cat image to the user's favourites collection.
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "catapi.save-favourite"
-          with:
-            image_id: "tools.image_id"
-            sub_id: "tools.sub_id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: list-user-votes
-          description: List all votes cast by the current user on cat images.
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "catapi.list-votes"
-          with:
-            sub_id: "tools.sub_id"
-          outputParameters:
-            - type: array
-              mapping: "$."
-        - name: vote-on-image
-          description: Cast an upvote (1) or downvote (0) on a cat image.
-          hints:
-            readOnly: false
-            destructive: false
-            idempotent: false
-          call: "catapi.create-vote"
-          with:
-            image_id: "tools.image_id"
-            value: "tools.value"
-            sub_id: "tools.sub_id"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: cat-content-api
+    description: Unified REST API for cat content discovery, breed research, and user curation.
+    resources:
+    - path: /v1/images
+      name: images
+      description: Search and retrieve cat images.
+      operations:
+      - method: GET
+        name: search-images
+        description: Search cat images with optional breed and category filters.
+        call: catapi.search-images
+        with:
+          limit: rest.limit
+          breed_ids: rest.breed_ids
+          category_ids: rest.category_ids
+          has_breeds: rest.has_breeds
+        outputParameters:
+        - type: array
+          mapping: $.
+    - path: /v1/images/{image_id}
+      name: image-detail
+      description: Retrieve a specific cat image.
+      operations:
+      - method: GET
+        name: get-image
+        description: Get details for a specific cat image.
+        call: catapi.get-image
+        with:
+          image_id: rest.image_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/breeds
+      name: breeds
+      description: Browse and search cat breeds.
+      operations:
+      - method: GET
+        name: list-breeds
+        description: List all cat breeds with characteristics.
+        call: catapi.list-breeds
+        with:
+          limit: rest.limit
+          page: rest.page
+        outputParameters:
+        - type: array
+          mapping: $.
+    - path: /v1/breeds/search
+      name: breed-search
+      description: Search breeds by name.
+      operations:
+      - method: GET
+        name: search-breeds
+        description: Search cat breeds by name.
+        call: catapi.search-breeds
+        with:
+          q: rest.q
+        outputParameters:
+        - type: array
+          mapping: $.
+    - path: /v1/categories
+      name: categories
+      description: Browse image categories.
+      operations:
+      - method: GET
+        name: list-categories
+        description: List all image categories.
+        call: catapi.list-categories
+        outputParameters:
+        - type: array
+          mapping: $.
+    - path: /v1/favourites
+      name: favourites
+      description: Manage user favourite images.
+      operations:
+      - method: GET
+        name: list-favourites
+        description: List the user's favourite cat images.
+        call: catapi.list-favourites
+        outputParameters:
+        - type: array
+          mapping: $.
+      - method: POST
+        name: save-favourite
+        description: Save a cat image as a favourite.
+        call: catapi.save-favourite
+        with:
+          image_id: rest.image_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/votes
+      name: votes
+      description: Cast and track votes on cat images.
+      operations:
+      - method: GET
+        name: list-votes
+        description: List all user votes.
+        call: catapi.list-votes
+        outputParameters:
+        - type: array
+          mapping: $.
+      - method: POST
+        name: create-vote
+        description: Cast an upvote or downvote on an image.
+        call: catapi.create-vote
+        with:
+          image_id: rest.image_id
+          value: rest.value
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: cat-content-mcp
+    transport: http
+    description: MCP server for AI-assisted cat content discovery, breed research, and curation.
+    tools:
+    - name: search-cat-images
+      description: Search for cat images, optionally filtered by breed or category.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: catapi.search-images
+      with:
+        limit: tools.limit
+        breed_ids: tools.breed_ids
+        category_ids: tools.category_ids
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: get-cat-image
+      description: Retrieve details and metadata for a specific cat image by ID.
+      hints:
+        readOnly: true
+        openWorld: false
+      call: catapi.get-image
+      with:
+        image_id: tools.image_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-cat-breeds
+      description: List all cat breeds with detailed characteristics, personality ratings, and origin information.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: catapi.list-breeds
+      with:
+        limit: tools.limit
+        page: tools.page
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: search-cat-breeds
+      description: Search for cat breeds by name to find breed-specific information.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: catapi.search-breeds
+      with:
+        q: tools.q
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: list-image-categories
+      description: List all available cat image categories for filtering searches.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: catapi.list-categories
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: list-user-favourites
+      description: List all cat images saved as favourites by the current user.
+      hints:
+        readOnly: true
+        openWorld: false
+      call: catapi.list-favourites
+      with:
+        sub_id: tools.sub_id
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: save-cat-favourite
+      description: Save a cat image to the user's favourites collection.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: catapi.save-favourite
+      with:
+        image_id: tools.image_id
+        sub_id: tools.sub_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-user-votes
+      description: List all votes cast by the current user on cat images.
+      hints:
+        readOnly: true
+        openWorld: false
+      call: catapi.list-votes
+      with:
+        sub_id: tools.sub_id
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: vote-on-image
+      description: Cast an upvote (1) or downvote (0) on a cat image.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: catapi.create-vote
+      with:
+        image_id: tools.image_id
+        value: tools.value
+        sub_id: tools.sub_id
+      outputParameters:
+      - type: object
+        mapping: $.
