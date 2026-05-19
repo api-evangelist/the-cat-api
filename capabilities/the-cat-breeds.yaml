@@ -1,0 +1,179 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: The Cat API — Breeds
+  description: 'The Cat API — Breeds. 3 operations. Lead operation: List Cat Breeds. Self-contained Naftiko capability covering
+    one The Cat Api business surface.'
+  tags:
+  - The Cat Api
+  - Breeds
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    THE_CAT_API_API_KEY: THE_CAT_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: the-cat-breeds
+    baseUri: https://api.thecatapi.com/v1
+    description: The Cat API — Breeds business capability. Self-contained, no shared references.
+    resources:
+    - name: breeds
+      path: /breeds
+      operations:
+      - name: listbreeds
+        method: GET
+        description: List Cat Breeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+        - name: page
+          in: query
+          type: integer
+        - name: attach_breed
+          in: query
+          type: integer
+    - name: breeds-search
+      path: /breeds/search
+      operations:
+      - name: searchbreeds
+        method: GET
+        description: Search Cat Breeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Breed name search query.
+          required: true
+        - name: attach_breed
+          in: query
+          type: integer
+    - name: breeds-breed_id
+      path: /breeds/{breed_id}
+      operations:
+      - name: getbreed
+        method: GET
+        description: Get Breed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: breed_id
+          in: path
+          type: string
+          description: Unique breed identifier (e.g., beng for Bengal).
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.THE_CAT_API_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: the-cat-breeds-rest
+    port: 8080
+    description: REST adapter for The Cat API — Breeds. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/breeds
+      name: breeds
+      description: REST surface for breeds.
+      operations:
+      - method: GET
+        name: listbreeds
+        description: List Cat Breeds
+        call: the-cat-breeds.listbreeds
+        with:
+          limit: rest.limit
+          page: rest.page
+          attach_breed: rest.attach_breed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/breeds/search
+      name: breeds-search
+      description: REST surface for breeds-search.
+      operations:
+      - method: GET
+        name: searchbreeds
+        description: Search Cat Breeds
+        call: the-cat-breeds.searchbreeds
+        with:
+          q: rest.q
+          attach_breed: rest.attach_breed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/breeds/{breed-id}
+      name: breeds-breed-id
+      description: REST surface for breeds-breed_id.
+      operations:
+      - method: GET
+        name: getbreed
+        description: Get Breed
+        call: the-cat-breeds.getbreed
+        with:
+          breed_id: rest.breed_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: the-cat-breeds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for The Cat API — Breeds. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-cat-breeds
+      description: List Cat Breeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-cat-breeds.listbreeds
+      with:
+        limit: tools.limit
+        page: tools.page
+        attach_breed: tools.attach_breed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-cat-breeds
+      description: Search Cat Breeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-cat-breeds.searchbreeds
+      with:
+        q: tools.q
+        attach_breed: tools.attach_breed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-breed
+      description: Get Breed
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-cat-breeds.getbreed
+      with:
+        breed_id: tools.breed_id
+      outputParameters:
+      - type: object
+        mapping: $.
