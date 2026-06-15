@@ -1,0 +1,464 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Cat API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Cat Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/images/search",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (1–100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order of results."
+              },
+              {
+                "name": "breed_ids",
+                "value": "beng,abys",
+                "type": "query",
+                "description": "Comma-separated breed IDs to filter images."
+              },
+              {
+                "name": "category_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated category IDs to filter images."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Preferred image size."
+              },
+              {
+                "name": "mime_types",
+                "value": "jpg,gif",
+                "type": "query",
+                "description": "Comma-separated MIME types to filter by (jpg, png, gif)."
+              },
+              {
+                "name": "has_breeds",
+                "value": "",
+                "type": "query",
+                "description": "Filter to only images that have breed information."
+              }
+            ]
+          },
+          "docs": "Search and retrieve cat images with optional filters for breed, category, size, format, and pagination. Returns random results by default."
+        },
+        {
+          "info": {
+            "name": "Upload Cat Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thecatapi.com/v1/images/upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "sub_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a cat image. Requires a valid API key. Supported formats are JPEG, PNG, and GIF."
+        },
+        {
+          "info": {
+            "name": "Get Uploaded Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/images",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve images uploaded by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/images/:image_id",
+            "params": [
+              {
+                "name": "image_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the image."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific image by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.thecatapi.com/v1/images/:image_id",
+            "params": [
+              {
+                "name": "image_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an uploaded image. Only works on images uploaded by the authenticated user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Breeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Cat Breeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/breeds",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attach_breed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all cat breeds with detailed information including origin, temperament, and characteristics."
+        },
+        {
+          "info": {
+            "name": "Search Cat Breeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/breeds/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "Siamese",
+                "type": "query",
+                "description": "Breed name search query."
+              },
+              {
+                "name": "attach_breed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for cat breeds by name."
+        },
+        {
+          "info": {
+            "name": "Get Breed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/breeds/:breed_id",
+            "params": [
+              {
+                "name": "breed_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique breed identifier (e.g., beng for Bengal)."
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific cat breed by its ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Favourites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Favourites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/favourites",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sub_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sub-account identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve all images saved as favourites by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Save Favourite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thecatapi.com/v1/favourites",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save an image as a favourite for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get Favourite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/favourites/:favourite_id",
+            "params": [
+              {
+                "name": "favourite_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific favourite by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete Favourite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.thecatapi.com/v1/favourites/:favourite_id",
+            "params": [
+              {
+                "name": "favourite_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove an image from the authenticated user's favourites."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Votes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Votes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/votes",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sub_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sub-account identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve all votes cast by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Create Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thecatapi.com/v1/votes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cast an upvote (1) or downvote (0) on a cat image."
+        },
+        {
+          "info": {
+            "name": "Get Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/votes/:vote_id",
+            "params": [
+              {
+                "name": "vote_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific vote by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete Vote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.thecatapi.com/v1/votes/:vote_id",
+            "params": [
+              {
+                "name": "vote_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a vote cast by the authenticated user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Categories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/categories",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of image categories available for filtering image searches."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

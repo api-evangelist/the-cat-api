@@ -1,0 +1,2432 @@
+{
+  "item": [
+    {
+      "id": "f1408802-b372-4e59-84ef-6a55e1046545",
+      "name": "Images",
+      "description": {
+        "content": "Search, upload, retrieve, and delete cat images.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c57ae9c-d6f9-45e3-b96c-1444f3a4e7d7",
+          "name": "Search Cat Images",
+          "request": {
+            "name": "Search Cat Images",
+            "description": {
+              "content": "Search and retrieve cat images with optional filters for breed, category, size, format, and pagination. Returns random results by default.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "images",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1",
+                  "description": "Number of results to return (1–100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Page number for paginated results."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "RANDOM",
+                  "description": "Order of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "breed_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated breed IDs to filter images."
+                },
+                {
+                  "disabled": false,
+                  "key": "category_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated category IDs to filter images."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<string>",
+                  "description": "Preferred image size."
+                },
+                {
+                  "disabled": false,
+                  "key": "mime_types",
+                  "value": "<string>",
+                  "description": "Comma-separated MIME types to filter by (jpg, png, gif)."
+                },
+                {
+                  "disabled": false,
+                  "key": "has_breeds",
+                  "value": "<integer>",
+                  "description": "Filter to only images that have breed information."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5daed538-df33-4caf-80e0-565f1a165e5b",
+              "name": "Array of cat images matching the search criteria.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "RANDOM"
+                    },
+                    {
+                      "key": "breed_ids",
+                      "value": "beng,abys"
+                    },
+                    {
+                      "key": "category_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mime_types",
+                      "value": "jpg,gif"
+                    },
+                    {
+                      "key": "has_breeds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"url\": \"http://biMcRmMITxbEeHr.cneui7GhrAcTa3JGyYtpbyazqujx+yjR9uaNqK1cEvMFbkcD4VqKDRcvbG60LoRMgeN\",\n    \"width\": 1137,\n    \"height\": 9578,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://OCaGXgIiMZMPovgXxRIaRPmkLQzdUrHsH.gnjyIKHHrxU+yNmF-IOGeUIi0MbAUsRvJof+9\",\n        \"vetstreet_url\": \"http://nvMBeaJMZusuAltmjVv.iximNyVI\",\n        \"vcahospitals_url\": \"https://zuBrgXEwJUBOmozzIaOCd.kjhmmzDpL,B7n\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 1,\n        \"adaptability\": 2,\n        \"affection_level\": 4,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 2,\n        \"energy_level\": 2,\n        \"grooming\": 3,\n        \"health_issues\": 2,\n        \"intelligence\": 1,\n        \"shedding_level\": 3,\n        \"social_needs\": 1,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 4,\n        \"wikipedia_url\": \"http://jevqjJLd.vzwCIbXxt4vhf2,XVB6l2QaKBGGx\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://BWUcycGwFGVZztwsyqZJMudAUv.vwgNsZpUkFItEFdCMif+r,7o\",\n        \"vetstreet_url\": \"http://EypfYlFATabBJxxzPJ.fbdD775WG5\",\n        \"vcahospitals_url\": \"http://UJTViICmZgstthhsLZkLEyUBpq.fweelTY6jCcnw5ZIekV8Nwarhh4ei4YVoHawL1vIA\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 1,\n        \"lap\": 1,\n        \"adaptability\": 4,\n        \"affection_level\": 4,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 1,\n        \"energy_level\": 1,\n        \"grooming\": 4,\n        \"health_issues\": 3,\n        \"intelligence\": 2,\n        \"shedding_level\": 1,\n        \"social_needs\": 1,\n        \"stranger_friendly\": 1,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"http://LqNVXyMhUPOBuPCbLE.cksL1lhZ1UliRemHlMrHdJ1.9zyPNJV9G.J,EbgshFsr1VPQ\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 2983,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 209,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"url\": \"https://nQcuZyDOIA.yhKrYga4Hue3AW4TiLzPQ1nCy7kBXuLR.Sczds9IC\",\n    \"width\": 8880,\n    \"height\": 6507,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://KINpuECuZuMHYgSCzkjimxcPxlzdfwlP.bbXqQbQQl9GCiIXKvYhmCa.rtihiwKW-bV0yvmfpzXaCjHO-lhkpYpgdLZJWLTIV+p+.BrHrtt\",\n        \"vetstreet_url\": \"https://eBMbIzSaJz.yponB.LrxG6ajIxvRCo8EWnMvYSCkkXBN4MDUsi.Ve8ggtATcBomeZ7nmTEtyN3QSInWAWwR75\",\n        \"vcahospitals_url\": \"http://hWunHvUGilOXihRf.wvLctTaeDQ6mBVT\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 0,\n        \"adaptability\": 1,\n        \"affection_level\": 4,\n        \"child_friendly\": 3,\n        \"dog_friendly\": 4,\n        \"energy_level\": 2,\n        \"grooming\": 3,\n        \"health_issues\": 1,\n        \"intelligence\": 2,\n        \"shedding_level\": 4,\n        \"social_needs\": 3,\n        \"stranger_friendly\": 2,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"https://vxPSDyiIpBeWpppORODOkeBDoYDO.tnyOJc19Si58ip0c-bJZvI+F7N7HK\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://FxeiJOkv.utlE5FftkGgQ,MNvJD11,uoEcr7j\",\n        \"vetstreet_url\": \"https://UHIrcUQwIcpqzhMmkOkPhFFnpASBj.mlksBKBP2-mPHDccS.WTNZ4SQij49BtPMug\",\n        \"vcahospitals_url\": \"http://Pib.ukffUrkNKg.llGtkGGb64v2VOLvoXU9Tjeo6ZE,r2PDXkfzWv.8TI,zU.IkJs7sIm4WFHouhNg+r05\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 0,\n        \"adaptability\": 2,\n        \"affection_level\": 3,\n        \"child_friendly\": 2,\n        \"dog_friendly\": 4,\n        \"energy_level\": 1,\n        \"grooming\": 4,\n        \"health_issues\": 4,\n        \"intelligence\": 3,\n        \"shedding_level\": 4,\n        \"social_needs\": 2,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 4,\n        \"wikipedia_url\": \"https://dNBMVpCufqPssSYjMzH.qbiMBH\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 1833,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 450,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a258c23-2533-43d8-b08d-a07376245712",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "RANDOM"
+                    },
+                    {
+                      "key": "breed_ids",
+                      "value": "beng,abys"
+                    },
+                    {
+                      "key": "category_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mime_types",
+                      "value": "jpg,gif"
+                    },
+                    {
+                      "key": "has_breeds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3696,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2126752-e033-4e44-abcf-ce76c9a7f491",
+              "name": "Unauthorized — invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "RANDOM"
+                    },
+                    {
+                      "key": "breed_ids",
+                      "value": "beng,abys"
+                    },
+                    {
+                      "key": "category_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mime_types",
+                      "value": "jpg,gif"
+                    },
+                    {
+                      "key": "has_breeds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3696,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "598ddc69-0b3d-446f-a4cb-2866961aec67",
+          "name": "Upload Cat Image",
+          "request": {
+            "name": "Upload Cat Image",
+            "description": {
+              "content": "Upload a cat image. Requires a valid API key. Supported formats are JPEG, PNG, and GIF.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "images",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "The image file to upload."
+                },
+                {
+                  "key": "sub_id",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional sub-account identifier."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "317dda30-db0e-4118-97b0-661428a46d31",
+              "name": "Image uploaded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The image file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional sub-account identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "sub_id",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"https://NNaTHTrOsCMIhVbhX.gjqtXUX,MMf.PR6DZHPrL0YZi.B+HtKuntMxKxXIOWQdqdehm2BfhPdnSFnaEIdfYG\",\n  \"width\": 8111,\n  \"height\": 4418,\n  \"breeds\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"cfa_url\": \"https://NWiLtOo.fstssrgsrEepC1SSVXSMxRZ7lONbipBkcRjhKEz7\",\n      \"vetstreet_url\": \"http://NRTHs.soxAqsjheZu.1ZXvTbAtqdT7LUM+tIpZnfJEN9Oq+wYFIUOGBjPOGEBwBvS-cwLcg5SEJgTu\",\n      \"vcahospitals_url\": \"http://IrBjupQQJFSrbduMDblKsbMJFEZKD.heRvMPCSdZxTR2-qwWH7N7iKeONhSgAEmaObz3BqqlLPzOQHI4xvl7cgS-CQ0g8DiRc.ot8v\",\n      \"temperament\": \"string\",\n      \"origin\": \"string\",\n      \"country_codes\": \"string\",\n      \"description\": \"string\",\n      \"life_span\": \"string\",\n      \"indoor\": 1,\n      \"lap\": 0,\n      \"adaptability\": 1,\n      \"affection_level\": 4,\n      \"child_friendly\": 4,\n      \"dog_friendly\": 3,\n      \"energy_level\": 4,\n      \"grooming\": 1,\n      \"health_issues\": 2,\n      \"intelligence\": 2,\n      \"shedding_level\": 1,\n      \"social_needs\": 3,\n      \"stranger_friendly\": 3,\n      \"vocalisation\": 1,\n      \"wikipedia_url\": \"https://VHTtAyykSeHaw.yubCLHTO.-,iqTAgWXMtBxstXKgthOZhbaQ\",\n      \"image\": {\n        \"id\": \"string\",\n        \"url\": \"https://pfjNZRnpmbQAbvpaQlVvQUKFeiMtUSe.rojyd.vNssa.VZclGngLLUxXlOH0yzpGxkP\",\n        \"width\": 9431,\n        \"height\": 311,\n        \"breeds\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          }\n        ],\n        \"categories\": [\n          {\n            \"id\": 3082,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 3041,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"cfa_url\": \"http://lIckAZCWLvcLYvoyDZCIjcddrm.fhLm,S5g2MAhUab+z\",\n      \"vetstreet_url\": \"http://naXSAnDUAptaoR.sxol7b03ti\",\n      \"vcahospitals_url\": \"https://ebUxZrExpcglX.zxykCjGC,5q-nA8\",\n      \"temperament\": \"string\",\n      \"origin\": \"string\",\n      \"country_codes\": \"string\",\n      \"description\": \"string\",\n      \"life_span\": \"string\",\n      \"indoor\": 0,\n      \"lap\": 0,\n      \"adaptability\": 2,\n      \"affection_level\": 3,\n      \"child_friendly\": 4,\n      \"dog_friendly\": 4,\n      \"energy_level\": 4,\n      \"grooming\": 3,\n      \"health_issues\": 4,\n      \"intelligence\": 3,\n      \"shedding_level\": 1,\n      \"social_needs\": 4,\n      \"stranger_friendly\": 1,\n      \"vocalisation\": 4,\n      \"wikipedia_url\": \"http://UMH.xkoaf1A,4vU4Sv2UC5KRS9,wFiUqTLT\",\n      \"image\": {\n        \"id\": \"string\",\n        \"url\": \"http://cdjKXaSbmOTtTZAZoennstW.dkrpJQQFd0haFbBSojWXSmpPZWXeHtEeO8X4xknOdAbicaCQd+x7HOVN\",\n        \"width\": 3148,\n        \"height\": 5720,\n        \"breeds\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          }\n        ],\n        \"categories\": [\n          {\n            \"id\": 6868,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4726,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"categories\": [\n    {\n      \"id\": 9605,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 9369,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60d1404a-dbfb-4ec3-b73b-4000691a9398",
+              "name": "Bad request — unsupported file type or validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The image file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional sub-account identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "sub_id",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3696,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad8df7e8-06d7-4bef-838e-bf84fc3a34f3",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The image file to upload.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional sub-account identifier.",
+                        "type": "text/plain"
+                      },
+                      "key": "sub_id",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3696,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bbb5523-0a0c-4252-81ba-b0d14a24e763",
+          "name": "Get Uploaded Images",
+          "request": {
+            "name": "Get Uploaded Images",
+            "description": {
+              "content": "Retrieve images uploaded by the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "ASC"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6fe31275-a5fc-4b72-a0eb-9c9d21d72a41",
+              "name": "List of uploaded images.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "order",
+                      "value": "ASC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"url\": \"http://biMcRmMITxbEeHr.cneui7GhrAcTa3JGyYtpbyazqujx+yjR9uaNqK1cEvMFbkcD4VqKDRcvbG60LoRMgeN\",\n    \"width\": 1137,\n    \"height\": 9578,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://OCaGXgIiMZMPovgXxRIaRPmkLQzdUrHsH.gnjyIKHHrxU+yNmF-IOGeUIi0MbAUsRvJof+9\",\n        \"vetstreet_url\": \"http://nvMBeaJMZusuAltmjVv.iximNyVI\",\n        \"vcahospitals_url\": \"https://zuBrgXEwJUBOmozzIaOCd.kjhmmzDpL,B7n\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 1,\n        \"adaptability\": 2,\n        \"affection_level\": 4,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 2,\n        \"energy_level\": 2,\n        \"grooming\": 3,\n        \"health_issues\": 2,\n        \"intelligence\": 1,\n        \"shedding_level\": 3,\n        \"social_needs\": 1,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 4,\n        \"wikipedia_url\": \"http://jevqjJLd.vzwCIbXxt4vhf2,XVB6l2QaKBGGx\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://BWUcycGwFGVZztwsyqZJMudAUv.vwgNsZpUkFItEFdCMif+r,7o\",\n        \"vetstreet_url\": \"http://EypfYlFATabBJxxzPJ.fbdD775WG5\",\n        \"vcahospitals_url\": \"http://UJTViICmZgstthhsLZkLEyUBpq.fweelTY6jCcnw5ZIekV8Nwarhh4ei4YVoHawL1vIA\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 1,\n        \"lap\": 1,\n        \"adaptability\": 4,\n        \"affection_level\": 4,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 1,\n        \"energy_level\": 1,\n        \"grooming\": 4,\n        \"health_issues\": 3,\n        \"intelligence\": 2,\n        \"shedding_level\": 1,\n        \"social_needs\": 1,\n        \"stranger_friendly\": 1,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"http://LqNVXyMhUPOBuPCbLE.cksL1lhZ1UliRemHlMrHdJ1.9zyPNJV9G.J,EbgshFsr1VPQ\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 2983,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 209,\n        \"name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"url\": \"https://nQcuZyDOIA.yhKrYga4Hue3AW4TiLzPQ1nCy7kBXuLR.Sczds9IC\",\n    \"width\": 8880,\n    \"height\": 6507,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://KINpuECuZuMHYgSCzkjimxcPxlzdfwlP.bbXqQbQQl9GCiIXKvYhmCa.rtihiwKW-bV0yvmfpzXaCjHO-lhkpYpgdLZJWLTIV+p+.BrHrtt\",\n        \"vetstreet_url\": \"https://eBMbIzSaJz.yponB.LrxG6ajIxvRCo8EWnMvYSCkkXBN4MDUsi.Ve8ggtATcBomeZ7nmTEtyN3QSInWAWwR75\",\n        \"vcahospitals_url\": \"http://hWunHvUGilOXihRf.wvLctTaeDQ6mBVT\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 0,\n        \"adaptability\": 1,\n        \"affection_level\": 4,\n        \"child_friendly\": 3,\n        \"dog_friendly\": 4,\n        \"energy_level\": 2,\n        \"grooming\": 3,\n        \"health_issues\": 1,\n        \"intelligence\": 2,\n        \"shedding_level\": 4,\n        \"social_needs\": 3,\n        \"stranger_friendly\": 2,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"https://vxPSDyiIpBeWpppORODOkeBDoYDO.tnyOJc19Si58ip0c-bJZvI+F7N7HK\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://FxeiJOkv.utlE5FftkGgQ,MNvJD11,uoEcr7j\",\n        \"vetstreet_url\": \"https://UHIrcUQwIcpqzhMmkOkPhFFnpASBj.mlksBKBP2-mPHDccS.WTNZ4SQij49BtPMug\",\n        \"vcahospitals_url\": \"http://Pib.ukffUrkNKg.llGtkGGb64v2VOLvoXU9Tjeo6ZE,r2PDXkfzWv.8TI,zU.IkJs7sIm4WFHouhNg+r05\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 0,\n        \"adaptability\": 2,\n        \"affection_level\": 3,\n        \"child_friendly\": 2,\n        \"dog_friendly\": 4,\n        \"energy_level\": 1,\n        \"grooming\": 4,\n        \"health_issues\": 4,\n        \"intelligence\": 3,\n        \"shedding_level\": 4,\n        \"social_needs\": 2,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 4,\n        \"wikipedia_url\": \"https://dNBMVpCufqPssSYjMzH.qbiMBH\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 1833,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 450,\n        \"name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5612610d-f74c-4d5e-a3b3-416efcf05e8a",
+          "name": "Get Image",
+          "request": {
+            "name": "Get Image",
+            "description": {
+              "content": "Retrieve a specific image by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "images",
+                ":image_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "image_id",
+                  "description": "(Required) Unique identifier of the image."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89f5453d-6769-4e09-9b37-cccaa9d7bdfe",
+              "name": "Image details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    ":image_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "image_id",
+                      "description": "(Required) Unique identifier of the image."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"https://NNaTHTrOsCMIhVbhX.gjqtXUX,MMf.PR6DZHPrL0YZi.B+HtKuntMxKxXIOWQdqdehm2BfhPdnSFnaEIdfYG\",\n  \"width\": 8111,\n  \"height\": 4418,\n  \"breeds\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"cfa_url\": \"https://NWiLtOo.fstssrgsrEepC1SSVXSMxRZ7lONbipBkcRjhKEz7\",\n      \"vetstreet_url\": \"http://NRTHs.soxAqsjheZu.1ZXvTbAtqdT7LUM+tIpZnfJEN9Oq+wYFIUOGBjPOGEBwBvS-cwLcg5SEJgTu\",\n      \"vcahospitals_url\": \"http://IrBjupQQJFSrbduMDblKsbMJFEZKD.heRvMPCSdZxTR2-qwWH7N7iKeONhSgAEmaObz3BqqlLPzOQHI4xvl7cgS-CQ0g8DiRc.ot8v\",\n      \"temperament\": \"string\",\n      \"origin\": \"string\",\n      \"country_codes\": \"string\",\n      \"description\": \"string\",\n      \"life_span\": \"string\",\n      \"indoor\": 1,\n      \"lap\": 0,\n      \"adaptability\": 1,\n      \"affection_level\": 4,\n      \"child_friendly\": 4,\n      \"dog_friendly\": 3,\n      \"energy_level\": 4,\n      \"grooming\": 1,\n      \"health_issues\": 2,\n      \"intelligence\": 2,\n      \"shedding_level\": 1,\n      \"social_needs\": 3,\n      \"stranger_friendly\": 3,\n      \"vocalisation\": 1,\n      \"wikipedia_url\": \"https://VHTtAyykSeHaw.yubCLHTO.-,iqTAgWXMtBxstXKgthOZhbaQ\",\n      \"image\": {\n        \"id\": \"string\",\n        \"url\": \"https://pfjNZRnpmbQAbvpaQlVvQUKFeiMtUSe.rojyd.vNssa.VZclGngLLUxXlOH0yzpGxkP\",\n        \"width\": 9431,\n        \"height\": 311,\n        \"breeds\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          }\n        ],\n        \"categories\": [\n          {\n            \"id\": 3082,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 3041,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"cfa_url\": \"http://lIckAZCWLvcLYvoyDZCIjcddrm.fhLm,S5g2MAhUab+z\",\n      \"vetstreet_url\": \"http://naXSAnDUAptaoR.sxol7b03ti\",\n      \"vcahospitals_url\": \"https://ebUxZrExpcglX.zxykCjGC,5q-nA8\",\n      \"temperament\": \"string\",\n      \"origin\": \"string\",\n      \"country_codes\": \"string\",\n      \"description\": \"string\",\n      \"life_span\": \"string\",\n      \"indoor\": 0,\n      \"lap\": 0,\n      \"adaptability\": 2,\n      \"affection_level\": 3,\n      \"child_friendly\": 4,\n      \"dog_friendly\": 4,\n      \"energy_level\": 4,\n      \"grooming\": 3,\n      \"health_issues\": 4,\n      \"intelligence\": 3,\n      \"shedding_level\": 1,\n      \"social_needs\": 4,\n      \"stranger_friendly\": 1,\n      \"vocalisation\": 4,\n      \"wikipedia_url\": \"http://UMH.xkoaf1A,4vU4Sv2UC5KRS9,wFiUqTLT\",\n      \"image\": {\n        \"id\": \"string\",\n        \"url\": \"http://cdjKXaSbmOTtTZAZoennstW.dkrpJQQFd0haFbBSojWXSmpPZWXeHtEeO8X4xknOdAbicaCQd+x7HOVN\",\n        \"width\": 3148,\n        \"height\": 5720,\n        \"breeds\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n          }\n        ],\n        \"categories\": [\n          {\n            \"id\": 6868,\n            \"name\": \"string\"\n          },\n          {\n            \"id\": 4726,\n            \"name\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"categories\": [\n    {\n      \"id\": 9605,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 9369,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87bfafc4-01f3-4190-9332-0086b86d8688",
+              "name": "Image not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    ":image_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "image_id",
+                      "description": "(Required) Unique identifier of the image."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3696,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cca57b7b-1111-4dc4-b409-13af0e56fa67",
+          "name": "Delete Image",
+          "request": {
+            "name": "Delete Image",
+            "description": {
+              "content": "Delete an uploaded image. Only works on images uploaded by the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "images",
+                ":image_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "image_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5bddf8bf-6e38-4216-8da0-7856e30cdd51",
+              "name": "Image deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    ":image_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "image_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "44db18e0-c212-4994-a010-ef40644bb553",
+              "name": "Image not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images",
+                    ":image_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "image_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3696,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fbee891e-9758-4a4d-9fac-9a3b4d0c26e0",
+      "name": "Breeds",
+      "description": {
+        "content": "List, search, and retrieve cat breed information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4715c17c-1808-42d2-a888-0e37c1ac73c0",
+          "name": "List Cat Breeds",
+          "request": {
+            "name": "List Cat Breeds",
+            "description": {
+              "content": "Returns a list of all cat breeds with detailed information including origin, temperament, and characteristics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breeds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "attach_breed",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6cc68c11-ee65-49ac-bea5-f9a73d5f1052",
+              "name": "List of cat breeds.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "attach_breed",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"http://qBeQndMKTnxngaDGonFTXWqLCluuRzM.tqqeohu3SyBF0Jn1B34KKIcF0h97xWF,VaTY\",\n    \"vetstreet_url\": \"http://yBYZXpcrYAvgACMpOMIjeTIkw.umI210hQf2sMEOmh+lTIzoPjeruSgdCyEndp4pjgXGDkR6\",\n    \"vcahospitals_url\": \"https://wNgORlOiGexFasUlXVNWKvCDxAtqyZ.cokKHsd0OugCjiCQssRxx.X.if1Ppmgl1phRdQTh3l9c\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 1,\n    \"lap\": 1,\n    \"adaptability\": 3,\n    \"affection_level\": 1,\n    \"child_friendly\": 2,\n    \"dog_friendly\": 3,\n    \"energy_level\": 2,\n    \"grooming\": 4,\n    \"health_issues\": 4,\n    \"intelligence\": 4,\n    \"shedding_level\": 1,\n    \"social_needs\": 4,\n    \"stranger_friendly\": 4,\n    \"vocalisation\": 3,\n    \"wikipedia_url\": \"https://RYINBUXc.wufdGFsV6Cgq\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://BRKlkWtTcJMngjMMnsacMIyPZtNmJDOe.usvIPrzZ-pZ2yLGvZF452rOLJ\",\n      \"width\": 2284,\n      \"height\": 3573,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 508,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1044,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"https://qIXQaMZvfhmZVwzlVqxBKvAFFwzPQXi.rgoutWKWA+0BAS1ngWRyKDstxcExBPRoIB7nMvKXA+fpsQGPl4KNuCAPDv\",\n    \"vetstreet_url\": \"https://mwEBupkFlxPPuLqWkbqHCEBr.hqiqtPg0Ulxu9dMPuetDBs+g1LJBzsutFy-kGYVh2ljwVtqRVyj8y\",\n    \"vcahospitals_url\": \"https://UBOgKXBZBWZCdlWVugAajmarphZErfidS.auuM4Xr6tYzUP7FxDOYO4IjNZ3zCutL.ldPJOZPlzwe\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 1,\n    \"lap\": 0,\n    \"adaptability\": 4,\n    \"affection_level\": 3,\n    \"child_friendly\": 3,\n    \"dog_friendly\": 1,\n    \"energy_level\": 4,\n    \"grooming\": 1,\n    \"health_issues\": 2,\n    \"intelligence\": 2,\n    \"shedding_level\": 1,\n    \"social_needs\": 3,\n    \"stranger_friendly\": 4,\n    \"vocalisation\": 3,\n    \"wikipedia_url\": \"http://aDFgKOhkoWNjcWzI.kmyOlDkDJll4m-Cga6qmeX6PJQm17wQZtTqn\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://kDpfgxHfHD.scjMDFkoE9yLtWOaJCH77JifdYbieN6LlexoVghDQAana6\",\n      \"width\": 6629,\n      \"height\": 762,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 6111,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8288,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "371bbe51-ef92-4428-9523-6d09b90dc885",
+          "name": "Search Cat Breeds",
+          "request": {
+            "name": "Search Cat Breeds",
+            "description": {
+              "content": "Search for cat breeds by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breeds",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Breed name search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "attach_breed",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebbff988-6ceb-4428-8565-0eafba163f47",
+              "name": "Matching breeds.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "Siamese"
+                    },
+                    {
+                      "key": "attach_breed",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"http://qBeQndMKTnxngaDGonFTXWqLCluuRzM.tqqeohu3SyBF0Jn1B34KKIcF0h97xWF,VaTY\",\n    \"vetstreet_url\": \"http://yBYZXpcrYAvgACMpOMIjeTIkw.umI210hQf2sMEOmh+lTIzoPjeruSgdCyEndp4pjgXGDkR6\",\n    \"vcahospitals_url\": \"https://wNgORlOiGexFasUlXVNWKvCDxAtqyZ.cokKHsd0OugCjiCQssRxx.X.if1Ppmgl1phRdQTh3l9c\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 1,\n    \"lap\": 1,\n    \"adaptability\": 3,\n    \"affection_level\": 1,\n    \"child_friendly\": 2,\n    \"dog_friendly\": 3,\n    \"energy_level\": 2,\n    \"grooming\": 4,\n    \"health_issues\": 4,\n    \"intelligence\": 4,\n    \"shedding_level\": 1,\n    \"social_needs\": 4,\n    \"stranger_friendly\": 4,\n    \"vocalisation\": 3,\n    \"wikipedia_url\": \"https://RYINBUXc.wufdGFsV6Cgq\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://BRKlkWtTcJMngjMMnsacMIyPZtNmJDOe.usvIPrzZ-pZ2yLGvZF452rOLJ\",\n      \"width\": 2284,\n      \"height\": 3573,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 508,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1044,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"https://qIXQaMZvfhmZVwzlVqxBKvAFFwzPQXi.rgoutWKWA+0BAS1ngWRyKDstxcExBPRoIB7nMvKXA+fpsQGPl4KNuCAPDv\",\n    \"vetstreet_url\": \"https://mwEBupkFlxPPuLqWkbqHCEBr.hqiqtPg0Ulxu9dMPuetDBs+g1LJBzsutFy-kGYVh2ljwVtqRVyj8y\",\n    \"vcahospitals_url\": \"https://UBOgKXBZBWZCdlWVugAajmarphZErfidS.auuM4Xr6tYzUP7FxDOYO4IjNZ3zCutL.ldPJOZPlzwe\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 1,\n    \"lap\": 0,\n    \"adaptability\": 4,\n    \"affection_level\": 3,\n    \"child_friendly\": 3,\n    \"dog_friendly\": 1,\n    \"energy_level\": 4,\n    \"grooming\": 1,\n    \"health_issues\": 2,\n    \"intelligence\": 2,\n    \"shedding_level\": 1,\n    \"social_needs\": 3,\n    \"stranger_friendly\": 4,\n    \"vocalisation\": 3,\n    \"wikipedia_url\": \"http://aDFgKOhkoWNjcWzI.kmyOlDkDJll4m-Cga6qmeX6PJQm17wQZtTqn\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://kDpfgxHfHD.scjMDFkoE9yLtWOaJCH77JifdYbieN6LlexoVghDQAana6\",\n      \"width\": 6629,\n      \"height\": 762,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 6111,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8288,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7b51cad-64e8-42a8-bb6c-c51b63d51ded",
+          "name": "Get Breed",
+          "request": {
+            "name": "Get Breed",
+            "description": {
+              "content": "Retrieve detailed information about a specific cat breed by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breeds",
+                ":breed_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "breed_id",
+                  "description": "(Required) Unique breed identifier (e.g., beng for Bengal)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bbb82233-8e1a-406b-8973-690b8067cd4f",
+              "name": "Breed details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds",
+                    ":breed_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "breed_id",
+                      "description": "(Required) Unique breed identifier (e.g., beng for Bengal)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"cfa_url\": \"http://ZyMlAtSioyAXCQhIJsAVYjxfYemp.ozbpFjQLc.zj3M1ypVpSAOLe0vMb\",\n  \"vetstreet_url\": \"https://CMCFswA.bhJZHE+1jc8efX3fsdCBE4RK4mUCbIWFxXYEyRAQ\",\n  \"vcahospitals_url\": \"https://FmxwxuUuWCCPLCSIjUhIMO.vkmJlQ7jCRusW.kUvU7.jSQ7QD5hx9FeXFTaIAjrlwT.WuJi,unOU5Pd\",\n  \"temperament\": \"string\",\n  \"origin\": \"string\",\n  \"country_codes\": \"string\",\n  \"description\": \"string\",\n  \"life_span\": \"string\",\n  \"indoor\": 0,\n  \"lap\": 0,\n  \"adaptability\": 2,\n  \"affection_level\": 1,\n  \"child_friendly\": 1,\n  \"dog_friendly\": 2,\n  \"energy_level\": 1,\n  \"grooming\": 3,\n  \"health_issues\": 3,\n  \"intelligence\": 1,\n  \"shedding_level\": 1,\n  \"social_needs\": 2,\n  \"stranger_friendly\": 4,\n  \"vocalisation\": 3,\n  \"wikipedia_url\": \"http://rXTrnOJlNNLj.kauoB+JvqtLZZGcoPuM9iWUasWnSKfJ+ZNd8L7\",\n  \"image\": {\n    \"id\": \"string\",\n    \"url\": \"https://kjYncwiSplRvBjJVLXP.ezwxetAA2sblsb3xRUHsWpjSYF3UBuf44cSppqPUy\",\n    \"width\": 325,\n    \"height\": 5921,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://t.pujyqS9fbA0bPjD67vY+K3uJ\",\n        \"vetstreet_url\": \"https://LiZOkbAGeLzcKVqRN.heyuHI-L7m7v0,Pi.BFW\",\n        \"vcahospitals_url\": \"http://UPHxGLDTPaujTRiPxdTJpBddZhOrw.pzrRT3Ix4UuJSqFrFFBBz3LOY8Og5,s6ohU,Dt1CUeC.A\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 0,\n        \"adaptability\": 3,\n        \"affection_level\": 2,\n        \"child_friendly\": 1,\n        \"dog_friendly\": 3,\n        \"energy_level\": 1,\n        \"grooming\": 4,\n        \"health_issues\": 4,\n        \"intelligence\": 3,\n        \"shedding_level\": 2,\n        \"social_needs\": 1,\n        \"stranger_friendly\": 1,\n        \"vocalisation\": 4,\n        \"wikipedia_url\": \"http://KcBcfGlZnRQBshbfkxBToxuzuoUFKZ.xcwZ3fU6G9rXGGzEYZutTp74Na0mzs6EihZ7\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://LaHKkiq.yvoU-,wahE.Shn3sJHqJvmavN.-o0uqEywVRkr.GQN-JoLxbcT8nKFGU-SmcANTrRPsUAG7EBwUjqf\",\n        \"vetstreet_url\": \"http://GXbisittmk.kipcKBTfNLN,pqTIwz82v8G,Spd22lcLnTGCkia-hbBO2uHMbQqGF1TCjEA\",\n        \"vcahospitals_url\": \"http://ydwUViVRYwpJ.ptex9-.ypA4-FWnRD0bJ3Y,p0AjXygBlNe9KyAhsmrocu6Gx4\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 1,\n        \"lap\": 1,\n        \"adaptability\": 3,\n        \"affection_level\": 2,\n        \"child_friendly\": 1,\n        \"dog_friendly\": 4,\n        \"energy_level\": 1,\n        \"grooming\": 2,\n        \"health_issues\": 1,\n        \"intelligence\": 3,\n        \"shedding_level\": 1,\n        \"social_needs\": 3,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"https://kAVK.hbyaohxt4meM7rVvJHMqkFrfFiiOwXnCzZveS\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 3736,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 7101,\n        \"name\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "780fdbfc-9937-4d4e-befb-2ba3b7ee2ee9",
+              "name": "Breed not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds",
+                    ":breed_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "breed_id",
+                      "description": "(Required) Unique breed identifier (e.g., beng for Bengal)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bff4ae92-695a-4ba2-91eb-73bbade280b9",
+      "name": "Favourites",
+      "description": {
+        "content": "Manage user favourite cat images.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eef36abc-f1fe-434f-91d3-8d43c699c5f6",
+          "name": "List Favourites",
+          "request": {
+            "name": "List Favourites",
+            "description": {
+              "content": "Retrieve all images saved as favourites by the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "favourites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "sub_id",
+                  "value": "<string>",
+                  "description": "Filter by sub-account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d99fea6-fd18-457f-b8b8-fdba12ae038e",
+              "name": "List of favourites.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "favourites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sub_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6428,\n    \"image_id\": \"string\",\n    \"user_id\": \"string\",\n    \"sub_id\": \"string\",\n    \"created_at\": \"2009-06-11T10:12:57.113Z\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"https://rCPiLaJFNfEv.tvc+n3r7\",\n      \"width\": 1080,\n      \"height\": 1118,\n      \"breeds\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"http://aXcGuaXRsMUblV.ckebU3G62g+8w9hn6YKmQSnREVQ6DAeo4WV1ex.-s4XIKHB\",\n          \"vetstreet_url\": \"https://GNwJtJUwNyrvX.wsjdRVPKrfevXKLpI4v9rM0,h.MsFrNdNn0i0UC5G8FBKULa.CBT\",\n          \"vcahospitals_url\": \"https://QLvID.worlgAIXK,Bo5jVKAa\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 1,\n          \"lap\": 0,\n          \"adaptability\": 4,\n          \"affection_level\": 4,\n          \"child_friendly\": 2,\n          \"dog_friendly\": 4,\n          \"energy_level\": 1,\n          \"grooming\": 1,\n          \"health_issues\": 1,\n          \"intelligence\": 1,\n          \"shedding_level\": 2,\n          \"social_needs\": 4,\n          \"stranger_friendly\": 4,\n          \"vocalisation\": 4,\n          \"wikipedia_url\": \"https://YoGkQWnIKYRQzyjwfd.mital+cmF6HpoabN,.,qPKVxNE\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"http://asjpyjVjoPxSaWglckOZgS.fmpFP1FDfjMyFYTS-oY63PjcPC2y+QxqGMm8um2\",\n          \"vetstreet_url\": \"http://PHcrMgZRgsWWxzXxflPGYqEyKnIYQrSP.xglow.8beroqzPPp-dHDSkSca118MCuHaP1sxASoIbBbfCz7hX\",\n          \"vcahospitals_url\": \"http://zcFQGSTeYbVebZut.gzxkyflTxVWl1NmCkg\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 1,\n          \"lap\": 1,\n          \"adaptability\": 3,\n          \"affection_level\": 2,\n          \"child_friendly\": 4,\n          \"dog_friendly\": 4,\n          \"energy_level\": 3,\n          \"grooming\": 1,\n          \"health_issues\": 2,\n          \"intelligence\": 2,\n          \"shedding_level\": 4,\n          \"social_needs\": 3,\n          \"stranger_friendly\": 3,\n          \"vocalisation\": 4,\n          \"wikipedia_url\": \"http://xzUZRxJbWHaRlzEptw.zpplsPEWuW5aGcWaqd7ndTfiKb81IlTyzQC.yrowXv5RqJzZ1qnu25ju.grzX9X2Ctj\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 606,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 6220,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": 25,\n    \"image_id\": \"string\",\n    \"user_id\": \"string\",\n    \"sub_id\": \"string\",\n    \"created_at\": \"1988-10-25T07:55:05.609Z\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://ObhuGpexEXuj.ycmMe5daGR5MYUGlfExjtejva,rKaqPNX-33fkH6\",\n      \"width\": 9030,\n      \"height\": 904,\n      \"breeds\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"http://nNiLMTGBr.yunaMLh5.Tv8Vu+BLwLAmBGn6\",\n          \"vetstreet_url\": \"http://luPvYOlNPlZSUGFXSrfbz.aiZHd0zvc3.Y-gUdMYm1ehnnePbXgrQh5ywy5chYeETaI7B0CWAjv\",\n          \"vcahospitals_url\": \"https://qdUNNNhkHA.xobiWoSdM6YSoenrGAlwbtWmcw4nBDHd\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 1,\n          \"lap\": 0,\n          \"adaptability\": 4,\n          \"affection_level\": 4,\n          \"child_friendly\": 3,\n          \"dog_friendly\": 3,\n          \"energy_level\": 1,\n          \"grooming\": 3,\n          \"health_issues\": 2,\n          \"intelligence\": 1,\n          \"shedding_level\": 2,\n          \"social_needs\": 4,\n          \"stranger_friendly\": 3,\n          \"vocalisation\": 2,\n          \"wikipedia_url\": \"https://jaaNnoqvvDMFpSyowxYq.xzsnX5yiJKX09Uy7A0\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"https://yMpynNPglLhXWexriqQZBxsugMupuUcN.zfjBQXvk+EVJlJiLOpIojGUHbodoGJDt68jfRi-zSJq\",\n          \"vetstreet_url\": \"http://LIcIxpClMqjAqibloUkKRK.tjctA8k.37,tmFkTSibv1LTAQTP\",\n          \"vcahospitals_url\": \"http://WYtXjIdqahrphmzhFiosFN.fwhiO1R.kg7DFOA,Lvs\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 1,\n          \"lap\": 0,\n          \"adaptability\": 4,\n          \"affection_level\": 3,\n          \"child_friendly\": 4,\n          \"dog_friendly\": 2,\n          \"energy_level\": 1,\n          \"grooming\": 2,\n          \"health_issues\": 2,\n          \"intelligence\": 4,\n          \"shedding_level\": 2,\n          \"social_needs\": 2,\n          \"stranger_friendly\": 4,\n          \"vocalisation\": 4,\n          \"wikipedia_url\": \"https://BihkWYjNcXDourMYpwQCmnnMkLkzfs.egEVn6pBGpSgRYD49dpW.B0Cip\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 9545,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 516,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92ceb1d2-ba29-4eb2-8bc5-7170abdcb0f2",
+          "name": "Save Favourite",
+          "request": {
+            "name": "Save Favourite",
+            "description": {
+              "content": "Save an image as a favourite for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "favourites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image_id\": \"<string>\",\n  \"sub_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4e03182-27cb-456c-af4c-95abb7c1aec0",
+              "name": "Favourite saved successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "favourites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image_id\": \"<string>\",\n  \"sub_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"id\": 4926\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcf322fa-9c62-4844-b58c-48e43a83eda4",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "favourites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image_id\": \"<string>\",\n  \"sub_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d921bac-a985-412b-869b-b6da609482bb",
+          "name": "Get Favourite",
+          "request": {
+            "name": "Get Favourite",
+            "description": {
+              "content": "Retrieve a specific favourite by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "favourites",
+                ":favourite_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "favourite_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a4f34b8-c757-4ae9-8e38-5846f497e4d1",
+              "name": "Favourite details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "favourites",
+                    ":favourite_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "favourite_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5297,\n  \"image_id\": \"string\",\n  \"user_id\": \"string\",\n  \"sub_id\": \"string\",\n  \"created_at\": \"2020-10-14T13:32:01.425Z\",\n  \"image\": {\n    \"id\": \"string\",\n    \"url\": \"http://EzqNLSAWxlirVxnpvzAkV.dygjP,rT2G0.45i\",\n    \"width\": 7759,\n    \"height\": 327,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://jesRFxdlcKSUMPMZpK.dsbqNDF24HGeHPOLUoBHAQ7rz2Rn8wBW\",\n        \"vetstreet_url\": \"https://SwxzxPoWiWQuPbCmoQndRXMCeHJi.wfh90W3ekEEAyYcG.RDpriwkpJode8rU\",\n        \"vcahospitals_url\": \"https://XqDfdLWZPxxiVZsdSOt.gcuYCOfpKVccn7Ugi9Lw5V2gmAeFSz,CH1P.C9KTgcG1CCffgpCpZZBOMZyta0vaK\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 0,\n        \"adaptability\": 4,\n        \"affection_level\": 3,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 4,\n        \"energy_level\": 1,\n        \"grooming\": 3,\n        \"health_issues\": 1,\n        \"intelligence\": 2,\n        \"shedding_level\": 3,\n        \"social_needs\": 4,\n        \"stranger_friendly\": 1,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"https://wmJbEcztbxPAwXmFomACtxthyECIzT.vgZv2d7bEstzMevcC1XNPLijewMmIvcDVAD9sSnYgENXaLHFwm\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://zsQnRRmxhKVEKfrtTrkR.icYwFxC8Kt,2xC4BZxJl4ngctbhRnr8oxkrZc,MxQseCBWzpFH4kGa3JOoUNK\",\n        \"vetstreet_url\": \"https://YecMXMLinEsmb.zkqpZspvM\",\n        \"vcahospitals_url\": \"https://KabXbkoCBpqNtPAswUaopaAG.wzaV7eRV9aBpUzpQgVeLfUzCB1wbkf-PHGHZkSPWcfOWUpukAxFxUxB\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 1,\n        \"lap\": 1,\n        \"adaptability\": 3,\n        \"affection_level\": 3,\n        \"child_friendly\": 3,\n        \"dog_friendly\": 1,\n        \"energy_level\": 3,\n        \"grooming\": 2,\n        \"health_issues\": 4,\n        \"intelligence\": 3,\n        \"shedding_level\": 3,\n        \"social_needs\": 2,\n        \"stranger_friendly\": 2,\n        \"vocalisation\": 2,\n        \"wikipedia_url\": \"http://XyrOtOKgfMT.pulbQNc07HS46PwQgPss6YuKzXQKvcV,P+mpT1gDZgSSHbviBDqntJ,Bqrob1K.ELnb7JwHbE,1LF\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 1493,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 9508,\n        \"name\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da5aee7f-3cce-49af-86cf-58e5605ec706",
+          "name": "Delete Favourite",
+          "request": {
+            "name": "Delete Favourite",
+            "description": {
+              "content": "Remove an image from the authenticated user's favourites.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "favourites",
+                ":favourite_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "favourite_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2665d473-266d-46a9-9807-3e00d6707098",
+              "name": "Favourite deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "favourites",
+                    ":favourite_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "favourite_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f8e4525-faf2-4642-979c-52b588392dd2",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "favourites",
+                    ":favourite_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "favourite_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "98fb611c-e55d-467e-9423-08924e83f775",
+      "name": "Votes",
+      "description": {
+        "content": "Cast and manage votes on cat images.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b28a9e01-50f0-45e7-8fca-84bf3df3fd0a",
+          "name": "List Votes",
+          "request": {
+            "name": "List Votes",
+            "description": {
+              "content": "Retrieve all votes cast by the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "votes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "sub_id",
+                  "value": "<string>",
+                  "description": "Filter by sub-account identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "920c7a5e-c144-40a7-9099-33da96c9cf04",
+              "name": "List of votes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sub_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6686,\n    \"image_id\": \"string\",\n    \"value\": 0,\n    \"user_id\": \"string\",\n    \"sub_id\": \"string\",\n    \"created_at\": \"1962-09-26T10:19:11.141Z\",\n    \"country_code\": \"string\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://cP.mgzktj,-sQkQpkHkNcVL+-nPFybFOhzwTOEzlNc+dJ17g0FcT6yKjKJnlpRkgX\",\n      \"width\": 5250,\n      \"height\": 3021,\n      \"breeds\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"http://yFcIvUetCjYW.uevafrOGm0L5qSBUuSSuYgtoJ73jsqOlGoxjAHDXx9Z+C2S.OOvCqkBqzg0xwCFPA9X\",\n          \"vetstreet_url\": \"https://mUtDSbaABPDEnAQSpSpaGmRMz.yuj0yUUMIQiWu0HwA+FcJV8AHe1J41AccdhGOI1StEO,krczCRV-TWvQdnvohMNDf98GioK\",\n          \"vcahospitals_url\": \"http://eXYjcW.ufjHNlH-RciMAnPpAGbVlHGo2sIeM8tsve5hL\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 0,\n          \"lap\": 1,\n          \"adaptability\": 2,\n          \"affection_level\": 3,\n          \"child_friendly\": 3,\n          \"dog_friendly\": 1,\n          \"energy_level\": 3,\n          \"grooming\": 1,\n          \"health_issues\": 4,\n          \"intelligence\": 1,\n          \"shedding_level\": 1,\n          \"social_needs\": 1,\n          \"stranger_friendly\": 3,\n          \"vocalisation\": 1,\n          \"wikipedia_url\": \"http://OUIyUNLXfYXjvdjOTBSbnxmRELRtS.mhqomiBJbtmN7gKNcr7rq5Rmp1V5QloZdHMu-Ki0kjB4U6LTHDDB13xcBy\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"http://luhxFnyLKxfu.ayHV7LZwXbnOw.qYZ9uT73tkOZ\",\n          \"vetstreet_url\": \"http://JQSuteLjvBgocTtAagyDoDW.jbaviMfRGxzOlIJLOiNTXaQ08EyfNhsOa\",\n          \"vcahospitals_url\": \"https://tlVbpYYSfAJPHZ.thISXGPugtFfUlwQUvpY7H\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 0,\n          \"lap\": 1,\n          \"adaptability\": 3,\n          \"affection_level\": 2,\n          \"child_friendly\": 1,\n          \"dog_friendly\": 1,\n          \"energy_level\": 3,\n          \"grooming\": 2,\n          \"health_issues\": 2,\n          \"intelligence\": 2,\n          \"shedding_level\": 2,\n          \"social_needs\": 2,\n          \"stranger_friendly\": 2,\n          \"vocalisation\": 2,\n          \"wikipedia_url\": \"https://tijHZWHfYtJrVrohFoQNsAusqUG.rrzrH4AZ\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 9002,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 6656,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": 2917,\n    \"image_id\": \"string\",\n    \"value\": 1,\n    \"user_id\": \"string\",\n    \"sub_id\": \"string\",\n    \"created_at\": \"1958-08-21T14:38:41.367Z\",\n    \"country_code\": \"string\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://xJrKmxdvYEfhlbws.svX,q5.k3JIJ5IsRShE-HcJZTBRHxunnYwHtqWCQruagOdfBkSRZseiMab2HMExvLaZ7rq0GtGjUd3\",\n      \"width\": 4879,\n      \"height\": 750,\n      \"breeds\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"https://qQljbkVimEpJTWqRtHolFSP.kipNmCyCHgq8wfqPDwaQTNuU\",\n          \"vetstreet_url\": \"https://rivoPFpMjHOrCLbaNkbQQh.htteUxjtxRq5TYgnQQtBdSIl2dmI3isfgMB3A\",\n          \"vcahospitals_url\": \"https://JWbJlhEPNdcjXVSDcWDTwKeqe.kresk.3U\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 1,\n          \"lap\": 1,\n          \"adaptability\": 2,\n          \"affection_level\": 3,\n          \"child_friendly\": 3,\n          \"dog_friendly\": 2,\n          \"energy_level\": 1,\n          \"grooming\": 4,\n          \"health_issues\": 1,\n          \"intelligence\": 3,\n          \"shedding_level\": 1,\n          \"social_needs\": 2,\n          \"stranger_friendly\": 2,\n          \"vocalisation\": 1,\n          \"wikipedia_url\": \"http://RUuKvI.gytuXW3jww5e1XQbvpNIrfFmuMJ1x0DaRjURqQMSwzQDY0rLIe6d\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"cfa_url\": \"https://dTYNSsbyJqRqXEJLnjwDdIpXaocf.yikyCGG\",\n          \"vetstreet_url\": \"http://FiUwdvsZ.kpnxcLia5yQLJedKv\",\n          \"vcahospitals_url\": \"http://fQXvknYWxthc.favuLjZmuG,B2y\",\n          \"temperament\": \"string\",\n          \"origin\": \"string\",\n          \"country_codes\": \"string\",\n          \"description\": \"string\",\n          \"life_span\": \"string\",\n          \"indoor\": 0,\n          \"lap\": 1,\n          \"adaptability\": 4,\n          \"affection_level\": 2,\n          \"child_friendly\": 2,\n          \"dog_friendly\": 3,\n          \"energy_level\": 2,\n          \"grooming\": 3,\n          \"health_issues\": 3,\n          \"intelligence\": 4,\n          \"shedding_level\": 2,\n          \"social_needs\": 1,\n          \"stranger_friendly\": 3,\n          \"vocalisation\": 2,\n          \"wikipedia_url\": \"https://ehmkbQ.svufeWvG,9RXz2nMA,FbFL9.LW+FxMovokp0J5WJvufOxtBBviaNi\",\n          \"image\": {\n            \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n          }\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 1266,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5327,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5273c661-6286-480d-b212-b30c591caf59",
+          "name": "Create Vote",
+          "request": {
+            "name": "Create Vote",
+            "description": {
+              "content": "Cast an upvote (1) or downvote (0) on a cat image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "votes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image_id\": \"<string>\",\n  \"value\": \"<integer>\",\n  \"sub_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e02fd50-0ab6-4dda-b7ab-8251cbfd6247",
+              "name": "Vote recorded successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image_id\": \"<string>\",\n  \"value\": \"<integer>\",\n  \"sub_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"id\": 4926\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50b93732-4916-4abb-bf35-b7a88a444f9b",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"image_id\": \"<string>\",\n  \"value\": \"<integer>\",\n  \"sub_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91764e8e-a787-4fbf-9311-c74418d88a2e",
+          "name": "Get Vote",
+          "request": {
+            "name": "Get Vote",
+            "description": {
+              "content": "Retrieve a specific vote by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "votes",
+                ":vote_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vote_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a8cce15-0287-4bdb-ab7d-9d6ec6b24bb0",
+              "name": "Vote details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "votes",
+                    ":vote_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vote_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4596,\n  \"image_id\": \"string\",\n  \"value\": 0,\n  \"user_id\": \"string\",\n  \"sub_id\": \"string\",\n  \"created_at\": \"1951-08-03T10:09:40.754Z\",\n  \"country_code\": \"string\",\n  \"image\": {\n    \"id\": \"string\",\n    \"url\": \"https://dxtAMuuWoZjSWTNkZwwhWDBkUkCHsVAdk.omgL4NkE0cXPNm8F4IN8U\",\n    \"width\": 1643,\n    \"height\": 987,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://cErlNUfxPNHZGUdYnOT.auymaYYXCO,L0.cr6GZ36y7GKPfy.LdiYioLQ4Fiz-VGKJpAc\",\n        \"vetstreet_url\": \"http://mjDmvuPqlpr.xlhXSWa1J1nkBfYM,tMsPAQjH12tnns5jplBTEvFn-euM\",\n        \"vcahospitals_url\": \"https://xYAXXIiaFHZPcGttaaYsw.avnIQW-4PFgL0FTY7BQBuzm3ibRbWsMtno9vOg0fx4uO\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 1,\n        \"adaptability\": 4,\n        \"affection_level\": 3,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 1,\n        \"energy_level\": 2,\n        \"grooming\": 1,\n        \"health_issues\": 2,\n        \"intelligence\": 3,\n        \"shedding_level\": 4,\n        \"social_needs\": 3,\n        \"stranger_friendly\": 1,\n        \"vocalisation\": 3,\n        \"wikipedia_url\": \"http://bZhvcHOzQveyoZuqoQ.nwFzHYFCmdvCPno2+EMJDZz5fRyg4HGM6y0ikS\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"https://JqzwKpQlHvlYOPdeMvMPnEcUVmdmc.yvsazcuX,pDK.O\",\n        \"vetstreet_url\": \"http://wM.lst0rpZ+7CWUxZGkvct\",\n        \"vcahospitals_url\": \"https://TJmVHEsmintMIkWvfQkEmHYhBhX.pspazpfVSUzRE9fJH,uzfNrSdivCd8FiGmjqCUYY9Rn.27jk-DLfp3Q8E\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 1,\n        \"adaptability\": 2,\n        \"affection_level\": 2,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 3,\n        \"energy_level\": 3,\n        \"grooming\": 2,\n        \"health_issues\": 1,\n        \"intelligence\": 2,\n        \"shedding_level\": 3,\n        \"social_needs\": 2,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 1,\n        \"wikipedia_url\": \"http://iJOZnlpQhnSVZ.ysSixYvYZzEzgQ6VW4O2paCaxZs7WUS3H8Ij24XxpDN\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 5878,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 8622,\n        \"name\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10a46c8f-29a0-4f6d-aaa3-ae8b2b15b4be",
+          "name": "Delete Vote",
+          "request": {
+            "name": "Delete Vote",
+            "description": {
+              "content": "Remove a vote cast by the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "votes",
+                ":vote_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vote_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b992f63-ad3a-4189-9e17-633cd702475f",
+              "name": "Vote deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "votes",
+                    ":vote_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vote_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2a88863a-3545-4ffa-aaa9-d62103900983",
+      "name": "Categories",
+      "description": {
+        "content": "Retrieve available image categories.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c93448f5-2a6d-486e-ad9d-be08c476d8d8",
+          "name": "List Categories",
+          "request": {
+            "name": "List Categories",
+            "description": {
+              "content": "Returns a list of image categories available for filtering image searches.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "7"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ecc8e640-9919-41c9-9fe7-d29373f8b326",
+              "name": "List of categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "7"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2331,\n    \"name\": \"string\"\n  },\n  {\n    \"id\": 1399,\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.thecatapi.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b96fba66-f78b-474d-8c37-4c14626a9692",
+    "name": "The Cat API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Cat API is an open, free, read and write API all about cats. Access thousands of cat images, vote on favorites, manage collections, explore breed information, and upload your own cat images. Requires a free API key for write operations.\n\nContact Support:\n Name: The Cat API Support",
+      "type": "text/plain"
+    }
+  }
+}
