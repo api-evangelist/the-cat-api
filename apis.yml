@@ -33,7 +33,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.thecatapi.com/
-      - type: SignUp
+      - type: Signup
         url: https://account.thecatapi.com/
       - type: GettingStarted
         url: https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
@@ -61,7 +61,7 @@ common:
     url: https://thecatapi.com/
   - type: Documentation
     url: https://developers.thecatapi.com/
-  - type: SignUp
+  - type: Signup
     url: https://account.thecatapi.com/
   - type: GitHubOrganization
     url: https://github.com/thatapicompany
