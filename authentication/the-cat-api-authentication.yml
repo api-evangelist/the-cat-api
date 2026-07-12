@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/the-cat-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyHeader
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: API key obtained by registering at https://thecatapi.com/signup
+  sources:
+  - openapi/the-cat-api-openapi.yml

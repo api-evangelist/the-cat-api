@@ -57,6 +57,10 @@ apis:
         name: That API Company GitHub
         type: GitHub
 common:
+  - type: DomainSecurity
+    url: security/the-cat-api-domain-security.yml
+  - type: Authentication
+    url: authentication/the-cat-api-authentication.yml
   - type: Website
     url: https://thecatapi.com/
   - type: Documentation
