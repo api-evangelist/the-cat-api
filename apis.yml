@@ -57,6 +57,8 @@ apis:
         name: That API Company GitHub
         type: GitHub
 common:
+  - type: AgenticAccess
+    url: agentic-access/the-cat-api-agentic-access.yml
   - type: DomainSecurity
     url: security/the-cat-api-domain-security.yml
   - type: Authentication
