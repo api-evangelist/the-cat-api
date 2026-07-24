@@ -1,0 +1,304 @@
+openapi: 3.0.3
+info:
+  title: The Cat Breeds Favourites API
+  description: The Cat API is an open, free, read and write API all about cats. Access thousands of cat images, vote on favorites, manage collections, explore breed information, and upload your own cat images. Requires a free API key for write operations.
+  version: 1.0.0
+  contact:
+    name: The Cat API Support
+    url: https://thecatapi.com/
+  license:
+    name: Free Tier Available
+    url: https://thecatapi.com/pricing
+servers:
+- url: https://api.thecatapi.com/v1
+  description: The Cat API Production Server
+security:
+- ApiKeyHeader: []
+tags:
+- name: Favourites
+  description: Manage user favourite cat images.
+paths:
+  /favourites:
+    get:
+      operationId: listFavourites
+      summary: List Favourites
+      description: Retrieve all images saved as favourites by the authenticated user.
+      tags:
+      - Favourites
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 100
+          maximum: 100
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+      - name: sub_id
+        in: query
+        required: false
+        description: Filter by sub-account identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of favourites.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Favourite'
+    post:
+      operationId: saveFavourite
+      summary: Save Favourite
+      description: Save an image as a favourite for the authenticated user.
+      tags:
+      - Favourites
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - image_id
+              properties:
+                image_id:
+                  type: string
+                  description: ID of the image to save as a favourite.
+                sub_id:
+                  type: string
+                  description: Optional sub-account identifier.
+      responses:
+        '200':
+          description: Favourite saved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  id:
+                    type: integer
+        '400':
+          description: Bad request.
+  /favourites/{favourite_id}:
+    get:
+      operationId: getFavourite
+      summary: Get Favourite
+      description: Retrieve a specific favourite by its ID.
+      tags:
+      - Favourites
+      parameters:
+      - name: favourite_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Favourite details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Favourite'
+    delete:
+      operationId: deleteFavourite
+      summary: Delete Favourite
+      description: Remove an image from the authenticated user's favourites.
+      tags:
+      - Favourites
+      parameters:
+      - name: favourite_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Favourite deleted successfully.
+        '400':
+          description: Bad request.
+components:
+  schemas:
+    Category:
+      type: object
+      description: An image category tag.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the category.
+        name:
+          type: string
+          description: Name of the category.
+      required:
+      - id
+      - name
+    Favourite:
+      type: object
+      description: A favourite image saved by a user.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the favourite.
+        user_id:
+          type: string
+          description: ID of the user who saved this favourite.
+        image_id:
+          type: string
+          description: ID of the favourited image.
+        sub_id:
+          type: string
+          description: Optional sub-account identifier.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the favourite was created.
+        image:
+          $ref: '#/components/schemas/Image'
+      required:
+      - id
+      - image_id
+    Image:
+      type: object
+      description: A cat image with metadata.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the image.
+        url:
+          type: string
+          format: uri
+          description: Full URL of the image.
+        width:
+          type: integer
+          description: Width of the image in pixels.
+        height:
+          type: integer
+          description: Height of the image in pixels.
+        breeds:
+          type: array
+          description: Breed information associated with this image.
+          items:
+            $ref: '#/components/schemas/Breed'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+      required:
+      - id
+      - url
+    Breed:
+      type: object
+      description: Information about a cat breed.
+      properties:
+        id:
+          type: string
+          description: Unique breed identifier (e.g., beng, abys).
+        name:
+          type: string
+          description: Name of the breed.
+        cfa_url:
+          type: string
+          format: uri
+          description: Cat Fanciers' Association profile URL.
+        vetstreet_url:
+          type: string
+          format: uri
+        vcahospitals_url:
+          type: string
+          format: uri
+        temperament:
+          type: string
+          description: Comma-separated list of temperament traits.
+        origin:
+          type: string
+          description: Country of origin.
+        country_codes:
+          type: string
+          description: ISO country code(s) for the breed's origin.
+        description:
+          type: string
+          description: Narrative description of the breed.
+        life_span:
+          type: string
+          description: Expected lifespan range (e.g., "12-15").
+        indoor:
+          type: integer
+          enum:
+          - 0
+          - 1
+        lap:
+          type: integer
+          enum:
+          - 0
+          - 1
+        adaptability:
+          type: integer
+          minimum: 1
+          maximum: 5
+        affection_level:
+          type: integer
+          minimum: 1
+          maximum: 5
+        child_friendly:
+          type: integer
+          minimum: 1
+          maximum: 5
+        dog_friendly:
+          type: integer
+          minimum: 1
+          maximum: 5
+        energy_level:
+          type: integer
+          minimum: 1
+          maximum: 5
+        grooming:
+          type: integer
+          minimum: 1
+          maximum: 5
+        health_issues:
+          type: integer
+          minimum: 1
+          maximum: 5
+        intelligence:
+          type: integer
+          minimum: 1
+          maximum: 5
+        shedding_level:
+          type: integer
+          minimum: 1
+          maximum: 5
+        social_needs:
+          type: integer
+          minimum: 1
+          maximum: 5
+        stranger_friendly:
+          type: integer
+          minimum: 1
+          maximum: 5
+        vocalisation:
+          type: integer
+          minimum: 1
+          maximum: 5
+        wikipedia_url:
+          type: string
+          format: uri
+        image:
+          $ref: '#/components/schemas/Image'
+      required:
+      - id
+      - name
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key obtained by registering at https://thecatapi.com/signup

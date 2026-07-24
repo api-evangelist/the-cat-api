@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: The Cat Breeds Categories API
+  description: The Cat API is an open, free, read and write API all about cats. Access thousands of cat images, vote on favorites, manage collections, explore breed information, and upload your own cat images. Requires a free API key for write operations.
+  version: 1.0.0
+  contact:
+    name: The Cat API Support
+    url: https://thecatapi.com/
+  license:
+    name: Free Tier Available
+    url: https://thecatapi.com/pricing
+servers:
+- url: https://api.thecatapi.com/v1
+  description: The Cat API Production Server
+security:
+- ApiKeyHeader: []
+tags:
+- name: Categories
+  description: Retrieve available image categories.
+paths:
+  /categories:
+    get:
+      operationId: listCategories
+      summary: List Categories
+      description: Returns a list of image categories available for filtering image searches.
+      tags:
+      - Categories
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 7
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: List of categories.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+components:
+  schemas:
+    Category:
+      type: object
+      description: An image category tag.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the category.
+        name:
+          type: string
+          description: Name of the category.
+      required:
+      - id
+      - name
+  securitySchemes:
+    ApiKeyHeader:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key obtained by registering at https://thecatapi.com/signup
