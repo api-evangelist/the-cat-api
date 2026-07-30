@@ -4,9 +4,22 @@ description: >-
   An open, free, read and write API all about cats. Access thousands of cat images, vote, favorite, and explore breed
   information.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/the-cat-api.png
 tags:
   - Animals
   - Cats
@@ -17,45 +30,91 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/the-cat-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: the-cat-api:the-cat-api
-    name: The Cat API
-    description: >-
-      An open, free, read and write API all about cats. Access thousands of cat images, vote, favorite, and explore
-      breed information.
-    humanURL: https://thecatapi.com/
-    baseURL: https://api.thecatapi.com/v1
-    tags:
-      - Animals
-      - Breeds
-      - Cats
-      - Images
-      - Voting
-    properties:
-      - type: Documentation
-        url: https://developers.thecatapi.com/
-      - type: Signup
-        url: https://account.thecatapi.com/
-      - type: GettingStarted
-        url: https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/the-cat-api/refs/heads/main/openapi/the-cat-api-openapi.yml
-    features:
-      - Image Search and Filtering
-      - Breed Lookup
-      - Image Upload
-      - Favourites Management
-      - Voting System
-      - Category Filtering
-    useCases:
-      - Building Cat-Themed Applications
-      - Cat Breed Identification Apps
-      - Fun Voting and Rating Apps
-      - Educational Animal Reference Tools
-      - Social Media Cat Content
-    integrations:
-      - url: https://github.com/thatapicompany
-        name: That API Company GitHub
-        type: GitHub
+- aid: the-cat-api:the-cat-api-breeds-api
+  name: The Cat API Breeds API
+  description: List, search, and retrieve cat breed information.
+  humanURL: https://thecatapi.com/
+  baseURL: https://api.thecatapi.com/v1
+  tags:
+  - Breeds
+  properties:
+  - type: OpenAPI
+    url: openapi/the-cat-api-breeds-api-openapi.yml
+  - type: Documentation
+    url: https://developers.thecatapi.com/
+  - type: Signup
+    url: https://account.thecatapi.com/
+  - type: GettingStarted
+    url: >-
+      https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
+- aid: the-cat-api:the-cat-api-categories-api
+  name: The Cat API Categories API
+  description: Retrieve available image categories.
+  humanURL: https://thecatapi.com/
+  baseURL: https://api.thecatapi.com/v1
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/the-cat-api-categories-api-openapi.yml
+  - type: Documentation
+    url: https://developers.thecatapi.com/
+  - type: Signup
+    url: https://account.thecatapi.com/
+  - type: GettingStarted
+    url: >-
+      https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
+- aid: the-cat-api:the-cat-api-favourites-api
+  name: The Cat API Favourites API
+  description: Manage user favourite cat images.
+  humanURL: https://thecatapi.com/
+  baseURL: https://api.thecatapi.com/v1
+  tags:
+  - Favourites
+  properties:
+  - type: OpenAPI
+    url: openapi/the-cat-api-favourites-api-openapi.yml
+  - type: Documentation
+    url: https://developers.thecatapi.com/
+  - type: Signup
+    url: https://account.thecatapi.com/
+  - type: GettingStarted
+    url: >-
+      https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
+- aid: the-cat-api:the-cat-api-images-api
+  name: The Cat API Images API
+  description: Search, upload, retrieve, and delete cat images.
+  humanURL: https://thecatapi.com/
+  baseURL: https://api.thecatapi.com/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/the-cat-api-images-api-openapi.yml
+  - type: Documentation
+    url: https://developers.thecatapi.com/
+  - type: Signup
+    url: https://account.thecatapi.com/
+  - type: GettingStarted
+    url: >-
+      https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
+- aid: the-cat-api:the-cat-api-votes-api
+  name: The Cat API Votes API
+  description: Cast and manage votes on cat images.
+  humanURL: https://thecatapi.com/
+  baseURL: https://api.thecatapi.com/v1
+  tags:
+  - Votes
+  properties:
+  - type: OpenAPI
+    url: openapi/the-cat-api-votes-api-openapi.yml
+  - type: Documentation
+    url: https://developers.thecatapi.com/
+  - type: Signup
+    url: https://account.thecatapi.com/
+  - type: GettingStarted
+    url: >-
+      https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
 common:
   - type: AgenticAccess
     url: agentic-access/the-cat-api-agentic-access.yml
