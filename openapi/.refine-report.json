@@ -1,0 +1,22 @@
+{
+  "provider": "the-cat-api",
+  "sources": [
+    "the-cat-api-breeds-api-openapi.yml",
+    "the-cat-api-categories-api-openapi.yml",
+    "the-cat-api-favourites-api-openapi.yml",
+    "the-cat-api-images-api-openapi.yml",
+    "the-cat-api-votes-api-openapi.yml"
+  ],
+  "outputs": [
+    "the-cat-api-breeds-api-openapi.yml",
+    "the-cat-api-categories-api-openapi.yml",
+    "the-cat-api-favourites-api-openapi.yml",
+    "the-cat-api-images-api-openapi.yml",
+    "the-cat-api-votes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
