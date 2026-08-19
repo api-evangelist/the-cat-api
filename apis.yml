@@ -28,7 +28,7 @@ tags:
 created: '2025-01-07'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/the-cat-api/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: the-cat-api:the-cat-api-breeds-api
   name: The Cat API Breeds API
