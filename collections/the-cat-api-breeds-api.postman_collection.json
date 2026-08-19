@@ -1,0 +1,401 @@
+{
+  "item": [
+    {
+      "id": "a8feadd2-761e-4891-bf64-ae4b1dd0514a",
+      "name": "Breeds",
+      "description": {
+        "content": "List, search, and retrieve cat breed information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "677be42e-cbfb-4700-97f8-0f8b82d2c6a1",
+          "name": "List Cat Breeds",
+          "request": {
+            "name": "List Cat Breeds",
+            "description": {
+              "content": "Returns a list of all cat breeds with detailed information including origin, temperament, and characteristics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breeds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "attach_breed",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a46e675-d2bd-42b0-ae6c-dae21f4ae1df",
+              "name": "List of cat breeds.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "attach_breed",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"http://QQTFnmcByUwPFkJibqxKtxNuLUCJICo.vtcdi9NSnaTAVIAQVs6XracNibHkL8Jr3SaJjn1uREy\",\n    \"vetstreet_url\": \"http://YwWUIObmYq.zjkF8zNcEYo0OztZcmg\",\n    \"vcahospitals_url\": \"https://RxIuFUwjsxo.utzlLbCAK4wR6PlQn7fpokGCtv1wRPqGx4wlie9lVMUDaLitVCeDJS7PHc3JH8lHC6gHn9\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 0,\n    \"lap\": 1,\n    \"adaptability\": 2,\n    \"affection_level\": 4,\n    \"child_friendly\": 4,\n    \"dog_friendly\": 3,\n    \"energy_level\": 2,\n    \"grooming\": 1,\n    \"health_issues\": 2,\n    \"intelligence\": 1,\n    \"shedding_level\": 4,\n    \"social_needs\": 1,\n    \"stranger_friendly\": 4,\n    \"vocalisation\": 4,\n    \"wikipedia_url\": \"http://BfVNDReKIoBdSs.kktztaVXGx0hKXFRroCndzsKqY\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://UntQpgzFDhuJqqnq.vmwsZZQy446gelDUqD7jB85OvWEQxWmHSG7FxWETLYRoyBkoIgBj\",\n      \"width\": 4773,\n      \"height\": 657,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 3543,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8543,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"http://zFHqwDFUebGDQiuJOPQnBCmYncmk.hakeflHgnhBqtYy5c+,uNbRefoArezvJMq7x9K+40B,JVV\",\n    \"vetstreet_url\": \"https://MHVHlLMhbmqZnOsWJEPM.bifRVgQbW5DxHrP09ZpPhh-G6pErXGg54-DTmi9mFojJ\",\n    \"vcahospitals_url\": \"https://PfqprzcSTplruHIkBd.fwnevhv1R\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 0,\n    \"lap\": 0,\n    \"adaptability\": 4,\n    \"affection_level\": 3,\n    \"child_friendly\": 2,\n    \"dog_friendly\": 2,\n    \"energy_level\": 1,\n    \"grooming\": 3,\n    \"health_issues\": 3,\n    \"intelligence\": 3,\n    \"shedding_level\": 4,\n    \"social_needs\": 4,\n    \"stranger_friendly\": 1,\n    \"vocalisation\": 3,\n    \"wikipedia_url\": \"https://hWgadBKNtYfFOWfwrBHIAhfD.ghfwjHAB13vU7iNrrDdmzQfk3iSCksvvcyzx5Dvp2D,BlvjfMbKkKjVEwrEcbjzdiVXT\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"https://kjcBmTECotjbsqFgoqafJjfZIwDiCNLDi.wxsGBrvT6-F7QG6qs1nexh9lCpxi.Ba\",\n      \"width\": 9766,\n      \"height\": 4146,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 2663,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1382,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "656ce046-4f8b-46c7-8550-56902206ca08",
+          "name": "Search Cat Breeds",
+          "request": {
+            "name": "Search Cat Breeds",
+            "description": {
+              "content": "Search for cat breeds by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breeds",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Breed name search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "attach_breed",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e81ae47e-96e7-4bb5-b18f-9acfa63b1021",
+              "name": "Matching breeds.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "Siamese"
+                    },
+                    {
+                      "key": "attach_breed",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"http://hA.luVfnZ6-yT9Ghrkl3Z.zXlTuDBV6XXMwKvmOTjr\",\n    \"vetstreet_url\": \"https://OwdCeNwaFIvRH.kdjhmLNoJRj2VqMzGjJoWGuXlHK.rD+l-jjz,tOyzX\",\n    \"vcahospitals_url\": \"https://wEBwufofNbYBmtsPBoovhGtlvDzpwUj.gfw5HYk8U0XVEEn\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 0,\n    \"lap\": 1,\n    \"adaptability\": 2,\n    \"affection_level\": 2,\n    \"child_friendly\": 1,\n    \"dog_friendly\": 2,\n    \"energy_level\": 4,\n    \"grooming\": 3,\n    \"health_issues\": 4,\n    \"intelligence\": 3,\n    \"shedding_level\": 3,\n    \"social_needs\": 1,\n    \"stranger_friendly\": 1,\n    \"vocalisation\": 4,\n    \"wikipedia_url\": \"http://ZOHUlQKBogsXiqBf.gawhoDMivYRLjD\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"https://CZoUBxKOEzapnl.kvkHWnnZegMptlkwkg5GFnK1Iv1B2bGBNUD+IhDy6j\",\n      \"width\": 7187,\n      \"height\": 8260,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 5503,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5714,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"cfa_url\": \"https://uaHNHZyS.buzbAQD3SJoFubJvIC5PTZGhs9zrh-i8rJTLBVID0Yss4nKjLRoRHs,,7pOXAy9,pUEr+K\",\n    \"vetstreet_url\": \"http://QXDBZrLUwWwpCfk.fjaI6sa-QKHFcxrQCNyDF40d.wryEx.G8wJy5hOoXGCBcDkukRCt+,uYHX\",\n    \"vcahospitals_url\": \"http://OwChnunxkSMsqIrPWyKlmwpA.hbyhEmJu5zkBsVOJG4Vh3h\",\n    \"temperament\": \"string\",\n    \"origin\": \"string\",\n    \"country_codes\": \"string\",\n    \"description\": \"string\",\n    \"life_span\": \"string\",\n    \"indoor\": 1,\n    \"lap\": 1,\n    \"adaptability\": 1,\n    \"affection_level\": 3,\n    \"child_friendly\": 1,\n    \"dog_friendly\": 1,\n    \"energy_level\": 1,\n    \"grooming\": 1,\n    \"health_issues\": 3,\n    \"intelligence\": 2,\n    \"shedding_level\": 4,\n    \"social_needs\": 4,\n    \"stranger_friendly\": 4,\n    \"vocalisation\": 3,\n    \"wikipedia_url\": \"https://Z.zzV1JJDtt6sVqIMF0XEs19rN8UO..hYbwCw+3l1QYLKwW+\",\n    \"image\": {\n      \"id\": \"string\",\n      \"url\": \"http://emqcZM.gkEfke3WvS-oHFSZ.vZsAkViuUJmWBxE6wYaBxfeVIFCwN\",\n      \"width\": 6843,\n      \"height\": 9416,\n      \"breeds\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Breed detected>\"\n        }\n      ],\n      \"categories\": [\n        {\n          \"id\": 44,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8423,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17f4c882-58d0-4618-a488-d65068a05b1e",
+          "name": "Get Breed",
+          "request": {
+            "name": "Get Breed",
+            "description": {
+              "content": "Retrieve detailed information about a specific cat breed by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "breeds",
+                ":breed_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "breed_id",
+                  "description": "(Required) Unique breed identifier (e.g., beng for Bengal)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1142269-de19-43f0-9e2d-c33016424d55",
+              "name": "Breed details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds",
+                    ":breed_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "breed_id",
+                      "description": "(Required) Unique breed identifier (e.g., beng for Bengal)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"cfa_url\": \"https://bChcdzJSmy.ohqc6YYonlkJsWVeX3Z3Ww0XUXFHWBzCiXD9vBKMyWs-U\",\n  \"vetstreet_url\": \"https://dyqaOjPL.tsnln5jR0DhR.co7VUTtmIe2-LGRRWE2fGKkuqm4FRbm9O.\",\n  \"vcahospitals_url\": \"http://OgyOAdWHlNWldXKzx.vhnBxFeUQQxLqvhe+6GxSZbyvUyHE5EVRbD3R2nQdwV\",\n  \"temperament\": \"string\",\n  \"origin\": \"string\",\n  \"country_codes\": \"string\",\n  \"description\": \"string\",\n  \"life_span\": \"string\",\n  \"indoor\": 1,\n  \"lap\": 1,\n  \"adaptability\": 3,\n  \"affection_level\": 4,\n  \"child_friendly\": 3,\n  \"dog_friendly\": 3,\n  \"energy_level\": 4,\n  \"grooming\": 4,\n  \"health_issues\": 1,\n  \"intelligence\": 3,\n  \"shedding_level\": 1,\n  \"social_needs\": 2,\n  \"stranger_friendly\": 3,\n  \"vocalisation\": 3,\n  \"wikipedia_url\": \"https://MKKhbjgBQPAoUHH.ayxqjlHoSed7gYJHtoqg-pdNReSC0hEhL6MAcAisX1xRnNWT-8nNWF1M6axH\",\n  \"image\": {\n    \"id\": \"string\",\n    \"url\": \"http://ZzzvaMlCLvgTBHjuDAikpqGPJYQYQ.hdFZQ+hnLj2BIWL,vwxdyY7nJS4XWSUR33H,yqkU\",\n    \"width\": 1271,\n    \"height\": 1960,\n    \"breeds\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://rXrSnqjpLnzUYAsTwxij.smruuijSg6t3-7h4zK-Lsw9yJF9CSN6e86ICyS9e\",\n        \"vetstreet_url\": \"http://cmasSFePtOZ.vggRW7x5edPWgONmh9MOvwUIq6I48yO28IBqeKmEoplFlBLo0xe\",\n        \"vcahospitals_url\": \"http://OHYIvqLtbmgWFhfOsFEvpVD.pijcSevTYbKpelLKYVzgGzcIGDi2qVhOcsKpFvni.6xdYZby9EB6OlUOYgrDEl9uQ-2zscH\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 1,\n        \"adaptability\": 4,\n        \"affection_level\": 3,\n        \"child_friendly\": 1,\n        \"dog_friendly\": 4,\n        \"energy_level\": 1,\n        \"grooming\": 1,\n        \"health_issues\": 1,\n        \"intelligence\": 1,\n        \"shedding_level\": 4,\n        \"social_needs\": 2,\n        \"stranger_friendly\": 2,\n        \"vocalisation\": 1,\n        \"wikipedia_url\": \"http://uYNWhvzJxvLVDOmuiLljCfOvaJ.nfGhH6hoexNPi,9oMlclMZKlIhpwerXRTyZ9.T3BQCnhrm-amTnFB7op0\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"cfa_url\": \"http://OGUglrpgoZGVZsnkNKCjcYlmccQRYcn.kghg,hZSHxK03g9gFOlxYbt0Dih\",\n        \"vetstreet_url\": \"https://PXPTwZdaxu.gbmkiPzaEN-XZs0DejXOqTg70IZOLrY3F5O02yChHa9\",\n        \"vcahospitals_url\": \"http://LoKPIQUnXJfMLWJCJ.ozxlpzbBhARAt7qWovx7lOtf+HxYp+gRGBwhR\",\n        \"temperament\": \"string\",\n        \"origin\": \"string\",\n        \"country_codes\": \"string\",\n        \"description\": \"string\",\n        \"life_span\": \"string\",\n        \"indoor\": 0,\n        \"lap\": 1,\n        \"adaptability\": 3,\n        \"affection_level\": 3,\n        \"child_friendly\": 4,\n        \"dog_friendly\": 3,\n        \"energy_level\": 4,\n        \"grooming\": 2,\n        \"health_issues\": 4,\n        \"intelligence\": 2,\n        \"shedding_level\": 1,\n        \"social_needs\": 3,\n        \"stranger_friendly\": 4,\n        \"vocalisation\": 1,\n        \"wikipedia_url\": \"http://tRKOgio.zuFh6OD4tUa4Rw2BzihpMZ0FifHe5-yvvZsCv4yfDmstR\",\n        \"image\": {\n          \"value\": \"<Circular reference to #/components/schemas/Image detected>\"\n        }\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": 2081,\n        \"name\": \"string\"\n      },\n      {\n        \"id\": 9585,\n        \"name\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "060251ed-8b76-4c54-be02-c59e29c8ae80",
+              "name": "Breed not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "breeds",
+                    ":breed_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "breed_id",
+                      "description": "(Required) Unique breed identifier (e.g., beng for Bengal)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.thecatapi.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3dba1877-7afd-475a-90e2-aef85652843f",
+    "name": "The Cat Breeds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Cat API is an open, free, read and write API all about cats. Access thousands of cat images, vote on favorites, manage collections, explore breed information, and upload your own cat images. Requires a free API key for write operations.\n\nContact Support:\n Name: The Cat API Support",
+      "type": "text/plain"
+    }
+  }
+}

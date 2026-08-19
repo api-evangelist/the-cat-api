@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Cat Breeds API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Breeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Cat Breeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/breeds",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attach_breed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of all cat breeds with detailed information including origin, temperament, and characteristics."
+        },
+        {
+          "info": {
+            "name": "Search Cat Breeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/breeds/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "Siamese",
+                "type": "query",
+                "description": "Breed name search query."
+              },
+              {
+                "name": "attach_breed",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for cat breeds by name."
+        },
+        {
+          "info": {
+            "name": "Get Breed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/breeds/:breed_id",
+            "params": [
+              {
+                "name": "breed_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique breed identifier (e.g., beng for Bengal)."
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific cat breed by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Cat Breeds Favourites API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Favourites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Favourites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/favourites",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sub_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sub-account identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve all images saved as favourites by the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Save Favourite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.thecatapi.com/v1/favourites",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save an image as a favourite for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get Favourite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.thecatapi.com/v1/favourites/:favourite_id",
+            "params": [
+              {
+                "name": "favourite_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific favourite by its ID."
+        },
+        {
+          "info": {
+            "name": "Delete Favourite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.thecatapi.com/v1/favourites/:favourite_id",
+            "params": [
+              {
+                "name": "favourite_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove an image from the authenticated user's favourites."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
