@@ -23,6 +23,11 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/the-cat-ap
 tags:
   - Animals
   - Cats
+  - Image
+  - Media
+tags_raw:
+  - Animals
+  - Cats
   - Images
   - Media
 created: '2025-01-07'
@@ -87,6 +92,8 @@ apis:
   humanURL: https://thecatapi.com/
   baseURL: https://api.thecatapi.com/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
