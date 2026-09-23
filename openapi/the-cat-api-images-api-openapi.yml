@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: The Cat Breeds Images API
+  title: Cat Images API
   description: The Cat API is an open, free, read and write API all about cats. Access thousands of cat images, vote on favorites, manage collections, explore breed information, and upload your own cat images. Requires a free API key for write operations.
   version: 1.0.0
   contact:
@@ -243,57 +243,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Category:
-      type: object
-      description: An image category tag.
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the category.
-        name:
-          type: string
-          description: Name of the category.
-      required:
-      - id
-      - name
-    Image:
-      type: object
-      description: A cat image with metadata.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the image.
-        url:
-          type: string
-          format: uri
-          description: Full URL of the image.
-        width:
-          type: integer
-          description: Width of the image in pixels.
-        height:
-          type: integer
-          description: Height of the image in pixels.
-        breeds:
-          type: array
-          description: Breed information associated with this image.
-          items:
-            $ref: '#/components/schemas/Breed'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/Category'
-      required:
-      - id
-      - url
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          description: HTTP status code.
-        message:
-          type: string
-          description: Error message.
     Breed:
       type: object
       description: Information about a cat breed.
@@ -395,6 +344,57 @@ components:
       required:
       - id
       - name
+    Image:
+      type: object
+      description: A cat image with metadata.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the image.
+        url:
+          type: string
+          format: uri
+          description: Full URL of the image.
+        width:
+          type: integer
+          description: Width of the image in pixels.
+        height:
+          type: integer
+          description: Height of the image in pixels.
+        breeds:
+          type: array
+          description: Breed information associated with this image.
+          items:
+            $ref: '#/components/schemas/Breed'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+      required:
+      - id
+      - url
+    Category:
+      type: object
+      description: An image category tag.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the category.
+        name:
+          type: string
+          description: Name of the category.
+      required:
+      - id
+      - name
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code.
+        message:
+          type: string
+          description: Error message.
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
