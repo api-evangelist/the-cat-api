@@ -128,44 +128,6 @@ paths:
           description: Bad request.
 components:
   schemas:
-    Favourite:
-      type: object
-      description: A favourite image saved by a user.
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the favourite.
-        user_id:
-          type: string
-          description: ID of the user who saved this favourite.
-        image_id:
-          type: string
-          description: ID of the favourited image.
-        sub_id:
-          type: string
-          description: Optional sub-account identifier.
-        created_at:
-          type: string
-          format: date-time
-          description: Timestamp when the favourite was created.
-        image:
-          $ref: '#/components/schemas/Image'
-      required:
-      - id
-      - image_id
-    Category:
-      type: object
-      description: An image category tag.
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the category.
-        name:
-          type: string
-          description: Name of the category.
-      required:
-      - id
-      - name
     Image:
       type: object
       description: A cat image with metadata.
@@ -296,6 +258,44 @@ components:
       required:
       - id
       - name
+    Category:
+      type: object
+      description: An image category tag.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the category.
+        name:
+          type: string
+          description: Name of the category.
+      required:
+      - id
+      - name
+    Favourite:
+      type: object
+      description: A favourite image saved by a user.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the favourite.
+        user_id:
+          type: string
+          description: ID of the user who saved this favourite.
+        image_id:
+          type: string
+          description: ID of the favourited image.
+        sub_id:
+          type: string
+          description: Optional sub-account identifier.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the favourite was created.
+        image:
+          $ref: '#/components/schemas/Image'
+      required:
+      - id
+      - image_id
   securitySchemes:
     ApiKeyHeader:
       type: apiKey

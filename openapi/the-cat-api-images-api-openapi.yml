@@ -243,28 +243,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          description: HTTP status code.
-        message:
-          type: string
-          description: Error message.
-    Category:
-      type: object
-      description: An image category tag.
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the category.
-        name:
-          type: string
-          description: Name of the category.
-      required:
-      - id
-      - name
     Image:
       type: object
       description: A cat image with metadata.
@@ -395,6 +373,28 @@ components:
       required:
       - id
       - name
+    Category:
+      type: object
+      description: An image category tag.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the category.
+        name:
+          type: string
+          description: Name of the category.
+      required:
+      - id
+      - name
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code.
+        message:
+          type: string
+          description: Error message.
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
