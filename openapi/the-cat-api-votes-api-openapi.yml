@@ -133,70 +133,6 @@ paths:
           description: Vote deleted successfully.
 components:
   schemas:
-    Vote:
-      type: object
-      description: A vote cast on an image by a user.
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the vote.
-        user_id:
-          type: string
-          description: ID of the user who cast this vote.
-        image_id:
-          type: string
-          description: ID of the voted image.
-        value:
-          type: integer
-          enum:
-          - 0
-          - 1
-          description: Vote value — 1 for upvote, 0 for downvote.
-        sub_id:
-          type: string
-          description: Sub-account identifier.
-        created_at:
-          type: string
-          format: date-time
-          description: Timestamp when the vote was cast.
-        country_code:
-          type: string
-          description: ISO country code of the voter.
-        image:
-          $ref: '#/components/schemas/Image'
-      required:
-      - id
-      - image_id
-      - value
-    Image:
-      type: object
-      description: A cat image with metadata.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the image.
-        url:
-          type: string
-          format: uri
-          description: Full URL of the image.
-        width:
-          type: integer
-          description: Width of the image in pixels.
-        height:
-          type: integer
-          description: Height of the image in pixels.
-        breeds:
-          type: array
-          description: Breed information associated with this image.
-          items:
-            $ref: '#/components/schemas/Breed'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/Category'
-      required:
-      - id
-      - url
     Breed:
       type: object
       description: Information about a cat breed.
@@ -311,6 +247,70 @@ components:
       required:
       - id
       - name
+    Image:
+      type: object
+      description: A cat image with metadata.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the image.
+        url:
+          type: string
+          format: uri
+          description: Full URL of the image.
+        width:
+          type: integer
+          description: Width of the image in pixels.
+        height:
+          type: integer
+          description: Height of the image in pixels.
+        breeds:
+          type: array
+          description: Breed information associated with this image.
+          items:
+            $ref: '#/components/schemas/Breed'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+      required:
+      - id
+      - url
+    Vote:
+      type: object
+      description: A vote cast on an image by a user.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the vote.
+        user_id:
+          type: string
+          description: ID of the user who cast this vote.
+        image_id:
+          type: string
+          description: ID of the voted image.
+        value:
+          type: integer
+          enum:
+          - 0
+          - 1
+          description: Vote value — 1 for upvote, 0 for downvote.
+        sub_id:
+          type: string
+          description: Sub-account identifier.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the vote was cast.
+        country_code:
+          type: string
+          description: ISO country code of the voter.
+        image:
+          $ref: '#/components/schemas/Image'
+      required:
+      - id
+      - image_id
+      - value
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
