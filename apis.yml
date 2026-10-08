@@ -136,6 +136,12 @@ apis:
     url: >-
       https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoeBGLXVHoGjXfjeHLFo5lFU
 common:
+  - type: Plans
+    url: plans/the-cat-api-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/the-cat-api-rate-limits.yml
+  - type: FinOps
+    url: finops/the-cat-api-finops.yml
   - type: AgenticAccess
     url: agentic-access/the-cat-api-agentic-access.yml
   - type: DomainSecurity
