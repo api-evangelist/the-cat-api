@@ -344,19 +344,6 @@ components:
       required:
       - id
       - name
-    Category:
-      type: object
-      description: An image category tag.
-      properties:
-        id:
-          type: integer
-          description: Unique identifier of the category.
-        name:
-          type: string
-          description: Name of the category.
-      required:
-      - id
-      - name
     Image:
       type: object
       description: A cat image with metadata.
@@ -395,6 +382,19 @@ components:
         message:
           type: string
           description: Error message.
+    Category:
+      type: object
+      description: An image category tag.
+      properties:
+        id:
+          type: integer
+          description: Unique identifier of the category.
+        name:
+          type: string
+          description: Name of the category.
+      required:
+      - id
+      - name
   securitySchemes:
     ApiKeyHeader:
       type: apiKey
